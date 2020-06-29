@@ -462,10 +462,12 @@ class system(modules.Module):
             restore_file_path = xbmcDialog.browse( 1,
                                                    oe._(32373),
                                                    'files',
-                                                   '??????????????.tar',
+                                                   '.tar|.tar.gz|.tar.bz2|.tar.xz',
                                                    False,
                                                    False,
-                                                   self.BACKUP_DESTINATION )
+                                                   self.BACKUP_DESTINATION,
+                                                   False )
+
             # Do nothing if the dialog is cancelled - path will be the backup destination
             if not os.path.isfile(restore_file_path):
                 return
