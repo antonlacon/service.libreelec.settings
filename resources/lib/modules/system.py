@@ -442,7 +442,8 @@ class system(modules.Module):
                                         '',
                                         False,
                                         False,
-                                        self.BACKUP_DESTINATION )
+                                        self.BACKUP_DESTINATION,
+                                        False )
             log.log(f'Directory for backup: {bckDir}', log.INFO)
 
             if bckDir and os.path.exists(bckDir):
@@ -463,9 +464,9 @@ class system(modules.Module):
                 self.generate_art_cache_filter()
                 if not os.path.exists(self.BACKUP_DESTINATION):
                     os.makedirs(self.BACKUP_DESTINATION)
-                self.backup_file = f'{oe.timestamp()}.tar'
+                self.backup_file = f'{oe.timestamp()}.tar.gz'
                 log.log(f'Backup file: {bckDir + self.backup_file}', log.INFO)
-                tar = tarfile.open(bckDir + self.backup_file, 'w', format=tarfile.GNU_FORMAT)
+                tar = tarfile.open(bckDir + self.backup_file, 'w:gz', compresslevel=9, format=tarfile.GNU_FORMAT)
                 for directory in self.BACKUP_DIRS:
                     self.tar_add_folder(tar, directory)
                     if self.backup_dlg is None or self.backup_dlg.iscanceled():
