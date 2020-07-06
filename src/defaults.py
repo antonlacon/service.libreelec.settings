@@ -73,6 +73,11 @@ system = {
         CONFIG_CACHE,
         '/storage/.ssh',
         ],
+    'BACKUP_FILTER' : [
+        XBMC_USER_HOME + '/addons/packages',
+        XBMC_USER_HOME + '/addons/temp',
+        XBMC_USER_HOME + '/temp'
+        ],
     'BACKUP_DESTINATION': '/storage/backup/',
     'RESTORE_DIR': '/storage/.restore/',
     }
