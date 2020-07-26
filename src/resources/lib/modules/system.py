@@ -518,6 +518,15 @@ class system:
             self.oe.set_busy(0)
             self.oe.dbg_log('system::ask_sure_reset', 'ERROR: (' + repr(e) + ')', self.oe.LOGERROR)
 
+    def generate_art_cache_filter(self):
+        try:
+            unused_files = self.oe.execute('texturecache.py p 2>/dev/null | head -n -3 | tail -n +3', get_result = 1)
+            for line in unused_files.splitlines():
+                line = line.split('|')
+                self.BACKUP_FILTER.append(f'{self.oe.XBMC_USER_HOME}/.kodi/userdata/Thumbnails/{line[1]}')
+        except Exception as e:
+            self.oe.dbg_log('system::generate_art_cache_filter', f'ERROR: ({repr(e)})', self.oe.LOGERROR)
+
     def do_backup(self, listItem=None):
         try:
             self.oe.dbg_log('system::do_backup', 'enter_function', self.oe.LOGDEBUG)
@@ -556,6 +565,7 @@ class system:
 
                 self.backup_dlg = xbmcgui.DialogProgress()
                 self.backup_dlg.create('LibreELEC', self.oe._(32375))
+                self.generate_art_cache_filter()
                 if not os.path.exists(self.BACKUP_DESTINATION):
                     os.makedirs(self.BACKUP_DESTINATION)
                 self.backup_file = self.oe.timestamp() + '.tar'
