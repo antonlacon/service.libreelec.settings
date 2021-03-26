@@ -64,6 +64,14 @@ class updates(modules.Module):
                     'InfoText': 715,
                     'order': 3,
                 },
+                'DevelopmentBuild': {
+                    'name': 32030,
+                    'value': '0',
+                    'action': 'set_value',
+                    'type': 'bool',
+                    'InfoText': 716,
+                    'order': 4
+                },
                 'ShowCustomChannels': {
                     'name': 32016,
                     'value': '0',
@@ -74,7 +82,7 @@ class updates(modules.Module):
                         'value': ['manual'],
                     },
                     'InfoText': 761,
-                    'order': 4,
+                    'order': 5,
                 },
                 'CustomChannel1': {
                     'name': 32017,
@@ -86,7 +94,7 @@ class updates(modules.Module):
                         'value': ['1'],
                     },
                     'InfoText': 762,
-                    'order': 5,
+                    'order': 6,
                 },
                 'CustomChannel2': {
                     'name': 32018,
@@ -98,7 +106,7 @@ class updates(modules.Module):
                         'value': ['1'],
                     },
                     'InfoText': 762,
-                    'order': 6,
+                    'order': 7,
                 },
                 'CustomChannel3': {
                     'name': 32019,
@@ -110,7 +118,7 @@ class updates(modules.Module):
                         'value': ['1'],
                     },
                     'InfoText': 762,
-                    'order': 7,
+                    'order': 8,
                 },
                 'Channel': {
                     'name': 32015,
@@ -123,7 +131,7 @@ class updates(modules.Module):
                     },
                     'values': [],
                     'InfoText': 760,
-                    'order': 8,
+                    'order': 9,
                 },
                 'Build': {
                     'name': 32020,
@@ -135,7 +143,7 @@ class updates(modules.Module):
                         'value': ['manual'],
                     },
                     'InfoText': 770,
-                    'order': 9,
+                    'order': 10,
                 },
             },
         },
@@ -409,19 +417,27 @@ class updates(modules.Module):
                     self.do_autoupdate()
             self.struct['update']['settings']['Build']['value'] = ''
 
+    # Retrieve releases.json from URL. Add releasees.json to URL if needed.
     @log.log_function()
     def get_json(self, url=None):
         if url is None:
-            url = self.UPDATE_DOWNLOAD_URL % ('releases', 'releases.json')
+            # if dev channel, test.libreelec.tv, else releases.libreelec.tv
+            if self.struct['update']['settings']['DevelopmentBuild']['value'] == '1':
+                url = self.UPDATE_DOWNLOAD_URL % ('test', 'releases.json')
+            else:
+                url = self.UPDATE_DOWNLOAD_URL % ('releases', 'releases.json')
         if url.split('/')[-1] != 'releases.json':
             url = f'{url}/releases.json'
         data = oe.load_url(url)
         if not data is None:
             update_json = json.loads(data)
+            log.log(f"Update information retrieved from: {url}", log.INFO)
         else:
             update_json = None
+            log.log(f"Unable to retrieve update information from: {url}", log.WARNING)
         return update_json
 
+    # Get default json release data and append custom json releases if configured.
     @log.log_function()
     def build_json(self, notify_error=False):
         update_json = self.get_json()
