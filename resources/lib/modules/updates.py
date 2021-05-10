@@ -423,7 +423,7 @@ class updates(modules.Module):
         if url is None:
             # if dev channel, test.libreelec.tv, else releases.libreelec.tv
             if self.struct['update']['settings']['DevelopmentBuild']['value'] == '1':
-                url = self.UPDATE_DOWNLOAD_URL % ('test', 'releases.json')
+                url = self.DEVELOPMENT_DOWNLOAD_URL
             else:
                 url = self.UPDATE_DOWNLOAD_URL % ('releases', 'releases.json')
         if url.split('/')[-1] != 'releases.json':
