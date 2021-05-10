@@ -126,6 +126,10 @@ msgid ""
 "is available"
 msgstr "Activer cette option affichera une notification à l'écran lorsqu'une mise à jour sera disponible"
 
+msgctxt "#716"
+msgid "Set to ON and @DISTRONAME@ will update using nightly test releases."
+msgstr ""
+
 msgctxt "#718"
 msgid ""
 "Send boot config files from /flash, kodi.log, kernel log and Samba configs "
@@ -453,6 +457,10 @@ msgstr "mise à jour de %s à %s"
 msgctxt "#32029"
 msgid "up to date: %s"
 msgstr "à jour: %s"
+
+msgctxt "#32030"
+msgid "Use Development Releases for Automatic Updates"
+msgstr ""
 
 msgctxt "#32100"
 msgid "Connections"

@@ -126,6 +126,10 @@ msgid ""
 "is available"
 msgstr "ON으로 설정하고 새로운 업데이트가 있으면 화면 알림이 표시됩니다"
 
+msgctxt "#716"
+msgid "Set to ON and @DISTRONAME@ will update using nightly test releases."
+msgstr ""
+
 msgctxt "#718"
 msgid ""
 "Send boot config files from /flash, kodi.log, kernel log and Samba configs "
@@ -453,6 +457,10 @@ msgstr "%s에서%s로 업데이트"
 msgctxt "#32029"
 msgid "up to date: %s"
 msgstr "최신: %s"
+
+msgctxt "#32030"
+msgid "Use Development Releases for Automatic Updates"
+msgstr ""
 
 msgctxt "#32100"
 msgid "Connections"

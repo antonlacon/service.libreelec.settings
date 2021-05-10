@@ -126,6 +126,10 @@ msgid ""
 "is available"
 msgstr "AÇIK olarak ayarlandığında, yeni bir güncelleme olduğunda ekranda bir bildirim görünecektir"
 
+msgctxt "#716"
+msgid "Set to ON and @DISTRONAME@ will update using nightly test releases."
+msgstr ""
+
 msgctxt "#718"
 msgid ""
 "Send boot config files from /flash, kodi.log, kernel log and Samba configs "
@@ -453,6 +457,10 @@ msgstr "%s sürümü, %ssürümüne güncelleştirildi"
 msgctxt "#32029"
 msgid "up to date: %s"
 msgstr "güncel: %s"
+
+msgctxt "#32030"
+msgid "Use Development Releases for Automatic Updates"
+msgstr ""
 
 msgctxt "#32100"
 msgid "Connections"
