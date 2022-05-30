@@ -87,7 +87,7 @@ system = {
 updates = {
     'ENABLED': not os.path.exists('/dev/.update_disabled'),
     'UPDATE_REQUEST_URL': 'https://update.libreelec.tv/updates.php',
-    'UPDATE_DOWNLOAD_URL': 'http://%s.libreelec.tv/%s',
+    'UPDATE_DOWNLOAD_URL': 'https://releases.libreelec.tv/releases.json',
     'LOCAL_UPDATE_DIR': '/storage/.update/',
 
     'RPI_FLASHING_TRIGGER': '/storage/.rpi_flash_firmware',

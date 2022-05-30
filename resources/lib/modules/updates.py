@@ -427,7 +427,7 @@ class updates(modules.Module):
     def get_json(self, url=None):
         """Download and extract data from a releases.json file. Complete the URL if necessary."""
         if not url:
-            url = self.UPDATE_DOWNLOAD_URL % ('releases', 'releases.json')
+            url = self.UPDATE_DOWNLOAD_URL
         if not url.startswith('http://') and not url.startswith('https://'):
             url = f'https://{url}'
         if not url.endswith('releases.json'):
