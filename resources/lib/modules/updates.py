@@ -25,7 +25,7 @@ class updates(modules.Module):
 
     ENABLED = False
     KERNEL_CMD = None
-    UPDATE_REQUEST_URL = None
+    STATISTICS_SUBMISSION_URL = None
     UPDATE_DOWNLOAD_URL = None
     LOCAL_UPDATE_DIR = None
     menu = {'2': {
@@ -567,16 +567,16 @@ class updates(modules.Module):
             version = oe.BUILDER_VERSION
         else:
             version = oe.VERSION
-        url = f'{self.UPDATE_REQUEST_URL}?i={oe.url_quote(systemid)}&d={oe.url_quote(oe.DISTRIBUTION)}&pa={oe.url_quote(oe.ARCHITECTURE)}&v={oe.url_quote(version)}&f={oe.url_quote(self.hardware_flags)}'
+        url = f'{self.STATISTICS_SUBMISSION_URL}?i={oe.url_quote(systemid)}&d={oe.url_quote(oe.DISTRIBUTION)}&pa={oe.url_quote(oe.ARCHITECTURE)}&v={oe.url_quote(version)}&f={oe.url_quote(self.hardware_flags)}'
         if oe.BUILDER_NAME:
             url += f'&b={oe.url_quote(oe.BUILDER_NAME)}'
 
         log.log(f'URL: {url}', log.DEBUG)
-        update_json = oe.load_url(url)
-        log.log(f'RESULT: {repr(update_json)}', log.DEBUG)
+        statistics_submission = oe.load_url(url)
+        log.log(f'RESULT: {repr(statistics_submission)}', log.DEBUG)
 
-        # statistics sent to UPDATE_REQUEST_URL, but discard the response.
-        update_json = None
+        # statistics sent to STATISTICS_SUBMISSION_URL, but discard the response.
+        statistics_submission = None
 
         # devel versions manage their own updates
         if oe.VERSION.startswith('devel'):

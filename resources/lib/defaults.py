@@ -86,7 +86,7 @@ system = {
 
 updates = {
     'ENABLED': not os.path.exists('/dev/.update_disabled'),
-    'UPDATE_REQUEST_URL': 'https://update.libreelec.tv/updates.php',
+    'STATISTICS_SUBMISSION_URL': 'https://update.libreelec.tv/updates.php',
     'UPDATE_DOWNLOAD_URL': 'https://releases.libreelec.tv/releases.json',
     'LOCAL_UPDATE_DIR': '/storage/.update/',
 
