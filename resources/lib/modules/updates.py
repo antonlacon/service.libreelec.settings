@@ -547,6 +547,15 @@ class updates(modules.Module):
 
     @log.log_function()
     def check_updates_v2(self, force=False):
+
+        def get_highest_value(list):
+            """Review a list of integers (eg releases) and return the highest as string."""
+            highest_value = 0 # releases start at 0
+            for value in list:
+                value = int(value)
+                highest_value = max(value, highest_value)
+            return str(highest_value)
+
         if hasattr(self, 'update_in_progress'):
             log.log('Update in progress (exit)', log.DEBUG)
             return
@@ -569,6 +578,12 @@ class updates(modules.Module):
         # statistics sent to UPDATE_REQUEST_URL, but discard the response.
         update_json = None
 
+        # devel versions manage their own updates
+        if oe.VERSION.startswith("devel"):
+            log.log("Update check skipped because this is a development build.", log.INFO)
+            self.last_update_check = time.time()
+            return
+
         # get releases.json
         release_data = self.get_json()
         self.last_update_check = time.time()
@@ -578,29 +593,17 @@ class updates(modules.Module):
             log.log("releases.json is empty. Failed to retrieve?", log.WARNING)
             return
 
-        # devel versions manage their own updates
-        if oe.VERSION.startswith("devel"):
-            log.log("Update check skipped because this is a development build.", log.INFO)
-            return
-
         # parse installed VERSION for comparison
         version_major = int(oe.VERSION.split(".")[0])
         version_minor = int(oe.VERSION.split(".")[1])
         version_bugfix = int(oe.VERSION.split(".")[2])
 
         # check highest bugfix release of installed branch
-        highest_device_release = 0
-
-        for device_release in release_data[f"{oe.DISTRIBUTION}-{oe.VERSION_ID}"]['project'][oe.ARCHITECTURE]['releases'].keys():
-            device_release = int(device_release)
-            if device_release > highest_device_release:
-                highest_device_release = device_release
-
-        highest_device_release = str(highest_device_release)
+        highest_device_release = get_highest_value(release_data[f"{oe.DISTRIBUTION}-{oe.VERSION_ID}"]['project'][oe.ARCHITECTURE]['releases'].keys())
 
         bugfix_filename = release_data[f"{oe.DISTRIBUTION}-{oe.VERSION_ID}"]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['name']
         # assumes filename format is "distribution-device.arch-version.tar"
-        bugfix_filename_version = bugfix_filename.split("-")[2].rstrip(".tar")
+        bugfix_filename_version = self.rchop(bugfix_filename.split('-')[2], '.tar')
         bugfix_filename_version_bugfix = int(bugfix_filename_version.split(".")[2])
 #        bugfix_filename_sha256 = release_data[f"{oe.DISTRIBUTION}-{oe.VERSION_ID}"]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['sha256']
 
@@ -627,10 +630,9 @@ class updates(modules.Module):
         # determine highest release series in releases.json
         highest_version_major = version_major
         highest_version_minor = version_minor
-        highest_device_release = 0
 
         for os_branch in release_data.keys():
-            key_version = os_branch.strip(f"{oe.DISTRIBUTION}-")
+            key_version = self.lchop(os_branch, f'{oe.DISTRIBUTION}-')
             key_version_major = int(key_version.split(".")[0])
             key_version_minor = int(key_version.split(".")[1])
 
@@ -648,27 +650,21 @@ class updates(modules.Module):
             return
 
         # determine highest 'releases' for device
-        for device_release in release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'].keys():
-            device_release = int(device_release)
-            if device_release > highest_device_release:
-                highest_device_release = device_release
-
-        highest_device_release = str(device_release)
+        highest_device_release = get_highest_value(release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'].keys())
 
         update_filename = release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['name']
         # assumes filename format is "distribution-device.arch-version.tar"
-        update_filename_version = update_filename.split("-")[2].rstrip(".tar")
+        update_filename_version = self.rchop(update_filename.split('-')[2], '.tar')
 #        update_filename_sha256 = release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['sha256']
 
         # if a release is available on a newer branch, notify the user
         update_filename_version_major = int(update_filename_version.split(".")[0])
         update_filename_version_minor = int(update_filename_version.split(".")[1])
-        update_filename_version_bugfix = int(update_filename_version.split(".")[2])
+#        update_filename_version_bugfix = int(update_filename_version.split(".")[2])
 
         # Current to a major or minor version upgrade
         if ((update_filename_version_major > version_major) or \
-            (update_filename_version_major == version_major and \
-             update_filename_version_minor > version_minor)):
+            (update_filename_version_major == version_major and update_filename_version_minor > version_minor)):
 
             update_url = release_data[release_branch]["url"]
             log.log(f"Found update file: {update_url}{update_filename}", log.INFO)
