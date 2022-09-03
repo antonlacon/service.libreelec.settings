@@ -579,8 +579,8 @@ class updates(modules.Module):
         update_json = None
 
         # devel versions manage their own updates
-        if oe.VERSION.startswith("devel"):
-            log.log("Update check skipped because this is a development build.", log.INFO)
+        if oe.VERSION.startswith('devel'):
+            log.log('Update check skipped because this is a development build.', log.INFO)
             self.last_update_check = time.time()
             return
 
@@ -589,37 +589,37 @@ class updates(modules.Module):
         self.last_update_check = time.time()
 
         # releases.json is empty
-        if release_data is None:
-            log.log("releases.json is empty. Failed to retrieve?", log.WARNING)
+        if not release_data:
+            log.log('releases.json is empty. Failed to retrieve?', log.WARNING)
             return
 
         # parse installed VERSION for comparison
-        version_major = int(oe.VERSION.split(".")[0])
-        version_minor = int(oe.VERSION.split(".")[1])
-        version_bugfix = int(oe.VERSION.split(".")[2])
+        version_major = int(oe.VERSION.split('.')[0])
+        version_minor = int(oe.VERSION.split('.')[1])
+        version_bugfix = int(oe.VERSION.split('.')[2])
 
         # check highest bugfix release of installed branch
-        highest_device_release = get_highest_value(release_data[f"{oe.DISTRIBUTION}-{oe.VERSION_ID}"]['project'][oe.ARCHITECTURE]['releases'].keys())
+        highest_device_release = get_highest_value(release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'].keys())
 
-        bugfix_filename = release_data[f"{oe.DISTRIBUTION}-{oe.VERSION_ID}"]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['name']
+        bugfix_filename = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['name']
         # assumes filename format is "distribution-device.arch-version.tar"
         bugfix_filename_version = self.rchop(bugfix_filename.split('-')[2], '.tar')
-        bugfix_filename_version_bugfix = int(bugfix_filename_version.split(".")[2])
-#        bugfix_filename_sha256 = release_data[f"{oe.DISTRIBUTION}-{oe.VERSION_ID}"]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['sha256']
+        bugfix_filename_version_bugfix = int(bugfix_filename_version.split('.')[2])
+#        bugfix_filename_sha256 = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['sha256']
 
         # bugfix upgrade within same branch
         if bugfix_filename_version_bugfix > version_bugfix:
 
-            update_url = release_data[f"{oe.DISTRIBUTION}-{oe.VERSION_ID}"]["url"]
-            self.update_file = f"{update_url}{bugfix_filename}"
-            log.log(f"Found update file: {self.update_file}", log.INFO)
+            update_url = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['url']
+            self.update_file = f'{update_url}{bugfix_filename}'
+            log.log(f'Found update file: {self.update_file}', log.INFO)
 
             # show update available notification
             if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
                 oe.notify(oe._(32363), oe._(32364))
             # if automatic update is enabled, start it
             if self.struct['update']['settings']['AutoUpdate']['value'] == 'auto' and force == False:
-                log.log("Starting automatic update...", log.INFO)
+                log.log('Starting automatic update...', log.INFO)
                 self.update_in_progress = True
                 self.do_autoupdate(None, True)
                 return
@@ -633,8 +633,8 @@ class updates(modules.Module):
 
         for os_branch in release_data.keys():
             key_version = self.lchop(os_branch, f'{oe.DISTRIBUTION}-')
-            key_version_major = int(key_version.split(".")[0])
-            key_version_minor = int(key_version.split(".")[1])
+            key_version_major = int(key_version.split('.')[0])
+            key_version_minor = int(key_version.split('.')[1])
 
             if key_version_major > highest_version_major:
                 highest_version_major = key_version_major
@@ -642,11 +642,11 @@ class updates(modules.Module):
             elif key_version_major == highest_version_major and key_version_minor > highest_version_minor:
                 highest_version_minor = key_version_minor
 
-        release_branch = f"{oe.DISTRIBUTION}-{highest_version_major}.{highest_version_minor}"
+        release_branch = f'{oe.DISTRIBUTION}-{highest_version_major}.{highest_version_minor}'
 
         # check if installed project/device is in the release_branch series
         if not oe.ARCHITECTURE in release_data[release_branch]['project'].keys():
-            log.log(f"Device not found in releases.json: {oe.ARCHITECTURE}", log.WARNING)
+            log.log(f'Device not found in releases.json: {oe.ARCHITECTURE}', log.WARNING)
             return
 
         # determine highest 'releases' for device
@@ -658,16 +658,16 @@ class updates(modules.Module):
 #        update_filename_sha256 = release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['sha256']
 
         # if a release is available on a newer branch, notify the user
-        update_filename_version_major = int(update_filename_version.split(".")[0])
-        update_filename_version_minor = int(update_filename_version.split(".")[1])
-#        update_filename_version_bugfix = int(update_filename_version.split(".")[2])
+        update_filename_version_major = int(update_filename_version.split('.')[0])
+        update_filename_version_minor = int(update_filename_version.split('.')[1])
+#        update_filename_version_bugfix = int(update_filename_version.split('.')[2])
 
         # Current to a major or minor version upgrade
         if ((update_filename_version_major > version_major) or \
             (update_filename_version_major == version_major and update_filename_version_minor > version_minor)):
 
-            update_url = release_data[release_branch]["url"]
-            log.log(f"Found update file: {update_url}{update_filename}", log.INFO)
+            update_url = release_data[release_branch]['url']
+            log.log(f'Found update file: {update_url}{update_filename}', log.INFO)
 
             # show update available notification
             if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
