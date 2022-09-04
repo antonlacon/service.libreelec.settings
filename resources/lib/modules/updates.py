@@ -611,7 +611,13 @@ class updates(modules.Module):
         if bugfix_filename_version_bugfix > version_bugfix:
 
             update_url = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['url']
-            self.update_file = f'{update_url}{bugfix_filename}'
+            bugfix_filename_subpath = ''
+            try:
+                bugfix_filename_subpath = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['subpath']
+                # TODO see if presence of subpath may be assumed after LE11 releases
+            except KeyError:
+                pass
+            self.update_file = f'{update_url}{bugfix_filename_subpath}/{bugfix_filename}'
             log.log(f'Found update file: {self.update_file}', log.INFO)
 
             # show update available notification
