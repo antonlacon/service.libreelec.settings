@@ -579,8 +579,8 @@ class updates(modules.Module):
         statistics_submission = None
 
         # devel versions manage their own updates
-        if oe.VERSION.startswith('devel'):
-            log.log('Update check skipped because this is a development build.', log.INFO)
+        if oe.VERSION.startswith('devel') or 'nightly' in oe.VERSION:
+            log.log('Update check skipped on nightly or development builds.', log.INFO)
             self.last_update_check = time.time()
             return
 
