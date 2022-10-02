@@ -17,7 +17,7 @@ import threading
 import subprocess
 import shutil
 from xml.dom import minidom
-from datetime import datetime
+from datetime import datetime, timedelta
 import tempfile
 from functools import cmp_to_key
 
@@ -574,12 +574,12 @@ class updates(modules.Module):
         log.log(f'URL: {url}', log.DEBUG)
         statistics_submission = oe.load_url(url)
         log.log(f'RESULT: {repr(statistics_submission)}', log.DEBUG)
-
         # statistics sent to STATISTICS_SUBMISSION_URL, but discard the response.
         statistics_submission = None
 
         # devel versions manage their own updates
         if oe.VERSION.startswith('devel') or 'nightly' in oe.VERSION:
+            # TODO add logic to handle nightly -> stable via date check of version string
             log.log('Update check skipped on nightly or development builds.', log.INFO)
             self.last_update_check = time.time()
             return
@@ -599,36 +599,37 @@ class updates(modules.Module):
         version_bugfix = int(oe.VERSION.split('.')[2])
 
         # check highest bugfix release of installed branch
-        highest_device_release = get_highest_value(release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'].keys())
+        highest_device_release = get_highest_value(release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'])
 
         bugfix_filename = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['name']
         # assumes filename format is "distribution-device.arch-version.tar"
         bugfix_filename_version = self.rchop(bugfix_filename.split('-')[2], '.tar')
         bugfix_filename_version_bugfix = int(bugfix_filename_version.split('.')[2])
+        bugfix_filename_timestamp = datetime.strptime(release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['timestamp'], '%Y-%m-%d %H:%M:%S')
+        bugfix_filename_smokedate = bugfix_filename_timestamp + timedelta(days=7)
 #        bugfix_filename_sha256 = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['sha256']
+        bugfix_filename_subpath = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['subpath']
 
         # bugfix upgrade within same branch
         if bugfix_filename_version_bugfix > version_bugfix:
 
             update_url = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['url']
-            bugfix_filename_subpath = ''
-            try:
-                bugfix_filename_subpath = release_data[f'{oe.DISTRIBUTION}-{oe.VERSION_ID}']['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['subpath']
-                # TODO see if presence of subpath may be assumed after LE11 releases
-            except KeyError:
-                pass
             self.update_file = f'{update_url}{bugfix_filename_subpath}/{bugfix_filename}'
             log.log(f'Found update file: {self.update_file}', log.INFO)
 
-            # show update available notification
-            if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
-                oe.notify(oe._(32363), oe._(32364))
-            # if automatic update is enabled, start it
-            if self.struct['update']['settings']['AutoUpdate']['value'] == 'auto' and force == False:
-                log.log('Starting automatic update...', log.INFO)
-                self.update_in_progress = True
-                self.do_autoupdate(None, True)
-                return
+            # Allow 7 days after release to smoke test before automatic upgrade
+            if datetime.now() > bugfix_filename_smokedate:
+                # show update available notification
+                if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
+                    oe.notify(oe._(32363), oe._(32364))
+                # if automatic update is enabled, start it
+                if self.struct['update']['settings']['AutoUpdate']['value'] == 'auto' and force == False:
+                    log.log('Starting automatic update...', log.INFO)
+                    self.update_in_progress = True
+                    self.do_autoupdate(None, True)
+                    return
+            else:
+                log.log(f'Update halted until {bugfix_filename_smokedate} for general availability.', log.INFO)
 
             # stop checking, update found
             return
@@ -637,7 +638,7 @@ class updates(modules.Module):
         highest_version_major = version_major
         highest_version_minor = version_minor
 
-        for os_branch in release_data.keys():
+        for os_branch in release_data:
             key_version = self.lchop(os_branch, f'{oe.DISTRIBUTION}-')
             key_version_major = int(key_version.split('.')[0])
             key_version_minor = int(key_version.split('.')[1])
@@ -651,17 +652,20 @@ class updates(modules.Module):
         release_branch = f'{oe.DISTRIBUTION}-{highest_version_major}.{highest_version_minor}'
 
         # check if installed project/device is in the release_branch series
-        if not oe.ARCHITECTURE in release_data[release_branch]['project'].keys():
+        if not oe.ARCHITECTURE in release_data[release_branch]['project']:
             log.log(f'Device not found in releases.json: {oe.ARCHITECTURE}', log.WARNING)
             return
 
         # determine highest 'releases' for device
-        highest_device_release = get_highest_value(release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'].keys())
+        highest_device_release = get_highest_value(release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'])
 
         update_filename = release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['name']
         # assumes filename format is "distribution-device.arch-version.tar"
         update_filename_version = self.rchop(update_filename.split('-')[2], '.tar')
+        update_filename_timestamp = datetime.strptime(release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['timestamp'], '%Y-%m-%d %H:%M:%S')
+        update_filename_smokedate = update_filename_timestamp + timedelta(days=7)
 #        update_filename_sha256 = release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['sha256']
+        update_filename_subpath = release_data[release_branch]['project'][oe.ARCHITECTURE]['releases'][highest_device_release]['file']['subpath']
 
         # if a release is available on a newer branch, notify the user
         update_filename_version_major = int(update_filename_version.split('.')[0])
@@ -673,11 +677,15 @@ class updates(modules.Module):
             (update_filename_version_major == version_major and update_filename_version_minor > version_minor)):
 
             update_url = release_data[release_branch]['url']
-            log.log(f'Found update file: {update_url}{update_filename}', log.INFO)
+            log.log(f'Found update file: {update_url}{update_filename_subpath}/{update_filename}', log.INFO)
 
-            # show update available notification
-            if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
-                oe.notify(oe._(32363), oe._(32364))
+            # Allow 7 days after release to smoke test before automatic upgrade
+            if datetime.now() > update_filename_smokedate:
+                # show update available notification
+                if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
+                    oe.notify(oe._(32363), oe._(32364))
+            else:
+                log.log(f'Update halted until {bugfix_filename_smokedate} for general availability.', log.INFO)
 
     @log.log_function()
     def do_autoupdate(self, listItem=None, silent=False):
