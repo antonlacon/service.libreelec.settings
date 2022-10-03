@@ -680,10 +680,8 @@ class system(modules.Module):
         if not listItem == None:
             self.set_value(listItem)
             if self.struct['journal']['settings']['journal_persistent']['value'] == '0':
-                try:
+                if os.path.isfile(self.JOURNALD_CONFIG_FILE):
                     os.remove(self.JOURNALD_CONFIG_FILE)
-                except:
-                    pass
             else:
                 size = self.struct['journal']['settings']['journal_size']['value'].replace(' MiB', 'M')
                 journal_config = f"""\
