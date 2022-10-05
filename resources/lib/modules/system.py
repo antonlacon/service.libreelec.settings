@@ -16,6 +16,7 @@ import tarfile
 import oeWindows
 from xml.dom import minidom
 import subprocess
+import os_tools
 
 xbmcDialog = xbmcgui.Dialog()
 
@@ -517,10 +518,7 @@ class system(modules.Module):
                         break
                 tar.close()
                 if self.backup_dlg is None or self.backup_dlg.iscanceled():
-                    try:
-                        os.remove(self.BACKUP_DESTINATION + self.backup_file)
-                    except:
-                        pass
+                    os_tools.delete_file(f'{self.BACKUP_DESTINATION}{self.backup_file}')
                 else:
                     self.backup_dlg.update(100, oe._(32401))
                 os.sync()
@@ -547,21 +545,19 @@ class system(modules.Module):
                 return
             log.log(f'Restore file: {restore_file_path}', log.INFO)
             restore_file_name = restore_file_path.split('/')[-1]
-            if os.path.exists(self.RESTORE_DIR):
-                oe.execute(f'rm -rf {self.RESTORE_DIR}')
+            os_tools.delete_tree(self.RESTORE_DIR)
             os.makedirs(self.RESTORE_DIR)
             folder_stat = os.statvfs(self.RESTORE_DIR)
             file_size = os.path.getsize(restore_file_path)
             free_space = folder_stat.f_frsize * folder_stat.f_bavail
             if free_space > file_size * 2:
-                if os.path.exists(self.RESTORE_DIR + restore_file_name):
-                    os.remove(self.RESTORE_DIR + restore_file_name)
+                os_tools.delete_file(f'{self.RESTORE_DIR}{restore_file_name}')
                 if oe.copy_file(restore_file_path, self.RESTORE_DIR + restore_file_name) != None:
                     copy_success = 1
                     log.log('Restore file successfully copied.', log.INFO)
                 else:
                     log.log(f'Failed to copy restore file to: {self.RESTORE_DIR}', log.ERROR)
-                    oe.execute(f'rm -rf {self.RESTORE_DIR}')
+                    os_tools.delete_tree(self.RESTORE_DIR)
             else:
                 txt = oe.split_dialog_text(oe._(32379))
                 answer = xbmcDialog.ok('Restore', f'{txt[0]}\n{txt[1]}\n{txt[2]}')
@@ -574,8 +570,8 @@ class system(modules.Module):
                         oe.xbmcm.waitForAbort(1)
                         subprocess.call(['/usr/bin/systemctl', '--no-block', 'reboot'], close_fds=True)
                 else:
-                    log.log('User Abort!')
-                    oe.execute(f'rm -rf {self.RESTORE_DIR}')
+                    log.log('User aborted system restore.', log.INFO)
+                    os_tools.delete_tree(self.RESTORE_DIR)
 
     @log.log_function()
     def do_send_system_logs(self, listItem=None):
@@ -680,8 +676,7 @@ class system(modules.Module):
         if not listItem == None:
             self.set_value(listItem)
             if self.struct['journal']['settings']['journal_persistent']['value'] == '0':
-                if os.path.isfile(self.JOURNALD_CONFIG_FILE):
-                    os.remove(self.JOURNALD_CONFIG_FILE)
+                os_tools.delete_file(self.JOURNALD_CONFIG_FILE)
             else:
                 size = self.struct['journal']['settings']['journal_size']['value'].replace(' MiB', 'M')
                 journal_config = f"""\
