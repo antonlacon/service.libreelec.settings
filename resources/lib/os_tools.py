@@ -2,6 +2,31 @@
 # Copyright (C) 2020-present Team LibreELEC
 
 import os
+import shutil
+import log
+
+
+def delete_file(file):
+    log.log(f'Deleting file: {file}', log.DEBUG)
+    if os.path.isfile(file):
+        try:
+            os.remove(file)
+        except Exception as e:
+            log.log(f'Error deleting {file}: {repr(e)}', log.ERROR)
+    else:
+        log.log(f'Tried to delete file that does not exist: {file}', log.WARNING)
+
+
+def delete_tree(tree):
+    log.log(f'Deleting directory: {tree}', log.DEBUG)
+    if os.path.isdir(tree):
+        try:
+            shutil.rmtree(tree)
+        except Exception as e:
+            log.log(f'Error deleting directory {tree}: {repr(e)}', log.ERROR)
+    else:
+        log.log(f'Tried to delete directory that does not exist: {tree}', log.WARNING)
+
 
 def read_shell_setting(file, default):
     setting = default
