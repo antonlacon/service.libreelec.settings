@@ -10,6 +10,7 @@ import xbmc
 import xbmcgui
 import xbmcaddon
 
+import config
 import log
 import oe
 
@@ -408,7 +409,7 @@ class wizard(xbmcgui.WindowXMLDialog):
         self.wizBtnTitle = 1403
         self.wizLstTitle = 1404
         self.wizWinTitle = 32300
-        self.guisettings = f'{oe.XBMC_USER_HOME}/userdata/guisettings.xml'
+        self.guisettings = f'{config.XBMC_USER_HOME}/userdata/guisettings.xml'
         self.buttons = {
             1: {
                 'id': 1500,
