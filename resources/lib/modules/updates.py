@@ -36,6 +36,7 @@ class updates(modules.Module):
     UPDATE_REQUEST_URL = None
     UPDATE_DOWNLOAD_URL = None
     LOCAL_UPDATE_DIR = None
+    LOCAL_UPDATE_TEMP = None
     menu = {'2': {
         'name': 32005,
         'menuLoader': 'load_menu',
@@ -639,13 +640,13 @@ class updates(modules.Module):
         if self.update_file:
             if not os.path.exists(self.LOCAL_UPDATE_DIR):
                 os.makedirs(self.LOCAL_UPDATE_DIR)
-            downloaded = oe.download_file(self.update_file, oe.TEMP + 'update_file', silent)
+            downloaded = oe.download_file(self.update_file, f'{self.LOCAL_UPDATE_TEMP}/update_file', silent)
             if downloaded:
                 self.update_file = self.update_file.split('/')[-1]
                 if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
                     # update download complete message
                     ui_tools.notification(oe._(32366), oe._(32363))
-                shutil.move(oe.TEMP + 'update_file', self.LOCAL_UPDATE_DIR + self.update_file)
+                shutil.move(f'{self.LOCAL_UPDATE_TEMP}/update_file', self.LOCAL_UPDATE_DIR + self.update_file)
                 os.sync()
                 if silent is False:
                     oe.winOeMain.close()
