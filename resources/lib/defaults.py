@@ -11,14 +11,16 @@ See resources/lib/config.py if you wish to set variables to be sourced elsewhere
 
 import os
 
+import config
+
 
 ################################################################################
 # Base
 ################################################################################
 
-XBMC_USER_HOME = os.environ.get('XBMC_USER_HOME', '/storage/.kodi')
-CONFIG_CACHE = os.environ.get('CONFIG_CACHE', '/storage/.cache')
-USER_CONFIG = os.environ.get('USER_CONFIG', '/storage/.config')
+XBMC_USER_HOME = config.XBMC_USER_HOME
+CONFIG_CACHE = config.CONFIG_CACHE
+USER_CONFIG = config.USER_CONFIG
 
 ################################################################################
 # Connamn Module
