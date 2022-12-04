@@ -803,9 +803,6 @@ DEVICE = os_release_data[6]
 BUILDER_NAME = os_release_data[7]
 BUILDER_VERSION = os_release_data[8]
 DOWNLOAD_DIR = '/storage/downloads'
-XBMC_USER_HOME = config.XBMC_USER_HOME
-CONFIG_CACHE = config.CONFIG_CACHE
-USER_CONFIG = config.USER_CONFIG
 winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)
 if os.path.exists('/etc/machine-id'):
     SYSTEMID = load_file('/etc/machine-id')
