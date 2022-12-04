@@ -37,6 +37,7 @@ class bluetooth(modules.Module):
     OBEX_ROOT = None
     OBEX_DAEMON = None
     BLUETOOTH_DAEMON = None
+    BLUETOOTH_SHARE = None
     D_OBEXD_ROOT = None
 
     # type 1=int, 2=string, 3=array, 4=bool
@@ -560,7 +561,7 @@ class Obex_Listener(dbus_obex.Listener):
     #                 xbmcDialog = xbmcgui.Dialog()
     #                 answer = xbmcDialog.yesno('Bluetooth Filetransfer', oe._(32383))
     #                 if answer == 1:
-    #                     fil = f'{oe.DOWNLOAD_DIR}/{self.parent.download_file}'
+    #                     fil = f'{self.BLUETOOTH_SHARE}/{self.parent.download_file}'
     #                     if 'image' in self.parent.download_type:
     #                         xbmc.executebuiltin(f'showpicture({fil})')
     #                     else:
