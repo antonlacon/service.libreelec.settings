@@ -8,6 +8,8 @@ import os_tools
 
 OS_RELEASE = os_tools.read_shell_settings('/etc/os-release')
 
+XBMC_USER_HOME = os.environ.get('XBMC_USER_HOME', '/storage/.kodi')
+ADDON_CONFIG_FILE = f'{XBMC_USER_HOME}/userdata/addon_data/service.libreelec.settings/oe_settings.xml'
 CONFIG_CACHE = os.environ.get('CONFIG_CACHE', '/storage/.cache')
 USER_CONFIG = os.environ.get('USER_CONFIG', '/storage/.config')
 

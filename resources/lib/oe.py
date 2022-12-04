@@ -24,6 +24,7 @@ import xbmcaddon
 import xbmcgui
 import xbmcvfs
 
+import config
 import defaults
 import log
 import os_tools
@@ -534,10 +535,9 @@ def load_config():
     while conf_lock:
         time.sleep(0.2)
     conf_lock = True
-    if os.path.exists(configFile):
-        config_file = open(configFile, 'r')
-        config_text = config_file.read()
-        config_file.close()
+    if os.path.exists(config.ADDON_CONFIG_FILE):
+        with open(config.ADDON_CONFIG_FILE, 'r') as config_file:
+            config_text = config_file.read()
     else:
         config_text = ''
     if config_text == '':
@@ -557,11 +557,11 @@ def load_config():
 
 @log.log_function()
 def save_config(xml_conf):
-    global configFile, conf_lock
+    global conf_lock
     while conf_lock:
         time.sleep(0.2)
     conf_lock = True
-    with open(configFile, 'w') as config_file:
+    with open(config.ADDON_CONFIG_FILE, 'w') as config_file:
         config_file.write(xml_conf.toprettyxml())
     conf_lock = False
 
@@ -824,10 +824,5 @@ except Exception:
 BOOT_STATUS = load_file('/storage/.config/boot.status')
 
 ############################################################################################
-
-try:
-    configFile = f'{XBMC_USER_HOME}/userdata/addon_data/service.libreelec.settings/oe_settings.xml'
-except:
-    pass
 
 PIN = PINStorage()
