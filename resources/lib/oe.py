@@ -293,7 +293,7 @@ def notify(title, message, icon='icon'):
 def set_service_option(service, option, value):
     lines = []
     changed = False
-    conf_file_name = f'{CONFIG_CACHE}/services/{service}.conf'
+    conf_file_name = f'{config.CONFIG_CACHE}/services/{service}.conf'
     if os.path.isfile(conf_file_name):
         with open(conf_file_name, 'r') as conf_file:
             for line in conf_file:
@@ -310,10 +310,10 @@ def set_service_option(service, option, value):
 @log.log_function()
 def get_service_option(service, option, default=None):
     conf_file_name = ''
-    if os.path.exists(f'{CONFIG_CACHE}/services/{service}.conf'):
-        conf_file_name = f'{CONFIG_CACHE}/services/{service}.conf'
-    if os.path.exists(f'{CONFIG_CACHE}/services/{service}.disabled'):
-        conf_file_name = f'{CONFIG_CACHE}/services/{service}.disabled'
+    if os.path.exists(f'{config.CONFIG_CACHE}/services/{service}.conf'):
+        conf_file_name = f'{config.CONFIG_CACHE}/services/{service}.conf'
+    if os.path.exists(f'{config.CONFIG_CACHE}/services/{service}.disabled'):
+        conf_file_name = f'{config.CONFIG_CACHE}/services/{service}.disabled'
     if os.path.exists(conf_file_name):
         with open(conf_file_name, 'r') as conf_file:
             for line in conf_file:
@@ -324,7 +324,7 @@ def get_service_option(service, option, default=None):
 
 @log.log_function()
 def get_service_state(service):
-    base_name = f'{CONFIG_CACHE}/services/{service}'
+    base_name = f'{config.CONFIG_CACHE}/services/{service}'
     return '1' if os.path.exists(f'{base_name}.conf') \
                   and not os.path.exists(f'{base_name}.disabled') else '0'
 
@@ -339,8 +339,8 @@ def set_service(service, options, state):
     # Service Enabled
     if state == 1:
         # Is Service alwys enabled ?
-        cfo = f'{CONFIG_CACHE}/services/{service}.disabled'
-        cfn = f'{CONFIG_CACHE}/services/{service}.conf'
+        cfo = f'{config.CONFIG_CACHE}/services/{service}.disabled'
+        cfn = f'{config.CONFIG_CACHE}/services/{service}.conf'
         if os.path.exists(cfo):
             os.remove(cfo)
         with open(cfn, 'w') as cf:
@@ -348,8 +348,8 @@ def set_service(service, options, state):
                 cf.write(f'{option}={options[option]}\n')
     # Service Disabled
     else:
-        cfo = f'{CONFIG_CACHE}/services/{service}.conf'
-        cfn = f'{CONFIG_CACHE}/services/{service}.disabled'
+        cfo = f'{config.CONFIG_CACHE}/services/{service}.conf'
+        cfn = f'{config.CONFIG_CACHE}/services/{service}.disabled'
         if os.path.exists(cfo):
             os.rename(cfo, cfn)
         else:
@@ -803,9 +803,9 @@ DEVICE = os_release_data[6]
 BUILDER_NAME = os_release_data[7]
 BUILDER_VERSION = os_release_data[8]
 DOWNLOAD_DIR = '/storage/downloads'
-XBMC_USER_HOME = defaults.XBMC_USER_HOME
-CONFIG_CACHE = defaults.CONFIG_CACHE
-USER_CONFIG = defaults.USER_CONFIG
+XBMC_USER_HOME = config.XBMC_USER_HOME
+CONFIG_CACHE = config.CONFIG_CACHE
+USER_CONFIG = config.USER_CONFIG
 winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)
 if os.path.exists('/etc/machine-id'):
     SYSTEMID = load_file('/etc/machine-id')
