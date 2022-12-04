@@ -3,6 +3,12 @@
 # Copyright (C) 2013 Lutz Fiebach (lufie@openelec.tv)
 # Copyright (C) 2020-present Team LibreELEC (https://libreelec.tv)
 
+'''This sets default values to variables used by modules in the modules/ subdir
+
+See resources/lib/modules.py for how it's implemented.
+See resources/lib/config.py if you wish to set variables to be sourced elsewhere.
+'''
+
 import os
 
 
