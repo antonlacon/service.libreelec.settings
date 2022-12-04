@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2020-present Team LibreELEC (https://libreelec.tv)
 
+'''This file sets variables for which the rest of the addon may refer to.
+'''
+
 import os
 
 import os_tools
