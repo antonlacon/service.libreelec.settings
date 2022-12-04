@@ -90,8 +90,8 @@ updates = {
     'UPDATE_REQUEST_URL': 'https://update.libreelec.tv/updates.php',
     'UPDATE_DOWNLOAD_URL': 'http://%s.libreelec.tv/%s',
     'LOCAL_UPDATE_DIR': '/storage/.update/',
-
-    'RPI_FLASHING_TRIGGER': '/storage/.rpi_flash_firmware',
+    'LOCAL_UPDATE_TEMP': f'{XBMC_USER_HOME}/temp',
+    'RPI_FLASHING_TRIGGER': '/storage/.rpi_flash_firmware'
     }
 
 about = {'ENABLED': True}

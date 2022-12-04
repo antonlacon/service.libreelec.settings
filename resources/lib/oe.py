@@ -806,7 +806,6 @@ DOWNLOAD_DIR = '/storage/downloads'
 XBMC_USER_HOME = defaults.XBMC_USER_HOME
 CONFIG_CACHE = defaults.CONFIG_CACHE
 USER_CONFIG = defaults.USER_CONFIG
-TEMP = f'{XBMC_USER_HOME}/temp/'
 winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)
 if os.path.exists('/etc/machine-id'):
     SYSTEMID = load_file('/etc/machine-id')
