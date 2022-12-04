@@ -10,7 +10,7 @@ import xbmc
 import xbmcaddon
 
 import syspath
-from defaults import CONFIG_CACHE, XBMC_USER_HOME
+from config import CONFIG_CACHE, XBMC_USER_HOME
 
 
 __scriptid__ = 'service.libreelec.settings'
