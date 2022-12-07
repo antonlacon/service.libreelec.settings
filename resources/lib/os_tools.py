@@ -11,6 +11,7 @@ Support functions are grouped by purpose:
 import os
 import subprocess
 
+import config
 import log
 
 
@@ -56,3 +57,18 @@ def execute(command, get_result=False):
         return None
     # return output if requested, otherwise None
     return cmd_status.stdout.decode() if get_result else None
+
+
+def get_rpi_cpu_ver():
+    '''Parse RPi CPU revision for model'''
+    if config.PROJECT == 'RPi':
+        try:
+            vc_cmd_output = execute('vcgencmd otp_dump 2>/dev/null', get_result=True)
+        except Exception:
+            return None
+        if vc_cmd_output:
+            for line in vc_cmd_output.splitlines():
+                if line[0:3] == '30:':
+                    rpi_revision_id = line.split(':')[1]
+                    return rpi_revision_id[4:5]
+    return None

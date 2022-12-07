@@ -10,24 +10,15 @@ import os_tools
 
 
 OS_RELEASE = os_tools.read_shell_settings('/etc/os-release')
-if 'NAME' in OS_RELEASE:
-    DISTRIBUTION = OS_RELEASE['NAME']
-if 'VERSION' in OS_RELEASE:
-    VERSION = OS_RELEASE['VERSION']
-if 'VERSION_ID' in OS_RELEASE:
-    VERSION_ID = OS_RELEASE['VERSION_ID']
-if 'LIBREELEC_BUILD' in OS_RELEASE:
-    BUILD = OS_RELEASE['LIBREELEC_BUILD']
-if 'LIBREELEC_ARCH' in OS_RELEASE:
-    ARCHITECTURE = OS_RELEASE['LIBREELEC_ARCH']
-if 'LIBREELEC_PROJECT' in OS_RELEASE:
-    PROJECT = OS_RELEASE['LIBREELEC_PROJECT']
-if 'LIBREELEC_DEVICE' in OS_RELEASE:
-    DEVICE = OS_RELEASE['LIBREELEC_DEVICE']
-if 'BUILDER_NAME' in OS_RELEASE:
-    BUILDER_NAME = OS_RELEASE['BUILDER_NAME']
-if 'BUILDER_VERSION' in OS_RELEASE:
-    BUILDER_VERSION = OS_RELEASE['BUILDER_VERSION']
+DISTRIBUTION = OS_RELEASE['NAME'] if 'NAME' in OS_RELEASE else ''
+VERSION = OS_RELEASE['VERSION'] if 'VERSION' in OS_RELEASE else ''
+VERSION_ID = OS_RELEASE['VERSION_ID'] if 'VERSION_ID' in OS_RELEASE else ''
+BUILD = OS_RELEASE['LIBREELEC_BUILD'] if 'LIBREELEC_BUILD' in OS_RELEASE else ''
+ARCHITECTURE = OS_RELEASE['LIBREELEC_ARCH'] if 'LIBREELEC_ARCH' in OS_RELEASE else ''
+PROJECT = OS_RELEASE['LIBREELEC_PROJECT'] if 'LIBREELEC_PROJECT' in OS_RELEASE else ''
+DEVICE = OS_RELEASE['LIBREELEC_DEVICE'] if 'LIBREELEC_DEVICE' in OS_RELEASE else ''
+BUILDER_NAME = OS_RELEASE['BUILDER_NAME'] if 'BUILDER_NAME' in OS_RELEASE else ''
+BUILDER_VERSION = OS_RELEASE['BUILDER_VERSION'] if 'BUILDER_VERSION' in OS_RELEASE else ''
 
 XBMC_USER_HOME = os.environ.get('XBMC_USER_HOME', '/storage/.kodi')
 ADDON_CONFIG_FILE = f'{XBMC_USER_HOME}/userdata/addon_data/service.libreelec.settings/oe_settings.xml'
@@ -42,11 +33,4 @@ HOSTS_CONF = os.path.join(USER_CONFIG, 'hosts.conf')
 REGDOMAIN_CONF = os.path.join(CONFIG_CACHE, 'regdomain.conf')
 SETREGDOMAIN = '/usr/lib/iw/setregdomain'
 
-try:
-    if PROJECT == 'RPi':
-        RPI_CPU_VER = os_tools.execute('vcgencmd otp_dump 2>/dev/null | grep 30: | cut -c8', get_result=True).replace('\n','')
-    else:
-        RPI_CPU_VER = ''
-except FileNotFoundError:
-    # if vcgencmd is missing
-    RPI_CPU_VER = ''
+RPI_CPU_VER = os_tools.get_rpi_cpu_ver() if PROJECT == 'RPi' else ''
