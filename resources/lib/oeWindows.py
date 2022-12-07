@@ -467,7 +467,7 @@ class wizard(xbmcgui.WindowXMLDialog):
         self.getControl(self.radiobuttons[1]['id']).setVisible(False)
         self.getControl(self.radiobuttons[2]['id']).setVisible(False)
         self.getControl(self.buttons[2]['id']).setVisible(False)
-        if oe.BOOT_STATUS == "SAFE":
+        if config.BOOT_STATUS == "SAFE":
             self.set_wizard_title(f"[COLOR red][B]{oe._(32393)}[/B][/COLOR]")
             self.set_wizard_text(oe._(32394))
         else:
