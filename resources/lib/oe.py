@@ -286,14 +286,6 @@ def _(code):
 
 
 @log.log_function()
-def notify(title, message, icon='icon'):
-    log.log('enter_function', log.DEBUG)
-    msg = f'Notification("{title}", "{message[0:64]}", 5000, "{__media__}/{icon}.png")'
-    xbmc.executebuiltin(msg)
-    log.log('exit_function', log.DEBUG)
-
-
-@log.log_function()
 def set_service_option(service, option, value):
     lines = []
     changed = False

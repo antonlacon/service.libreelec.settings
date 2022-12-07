@@ -13,5 +13,5 @@ ADDON_NAME = ADDON.getAddonInfo('name')
 
 
 @log.log_function()
-def notification(message, heading=ADDON_NAME, icon=ADDON_ICON):
-    xbmcgui.Dialog().notification(heading, message, icon)
+def notification(message, heading=ADDON_NAME, icon=ADDON_ICON, duration=5000):
+    xbmcgui.Dialog().notification(heading, message, icon, duration)
