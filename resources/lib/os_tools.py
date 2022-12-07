@@ -10,6 +10,10 @@ Support functions are grouped by purpose:
 
 import os
 import subprocess
+import urllib.parse
+import urllib.request
+
+import xbmcgui
 
 import config
 import log
@@ -37,6 +41,28 @@ def read_shell_settings(file, defaults={}):
 
 
 ### SYSTEM ACCESS ###
+def download_file(source, destination, silent=False):
+    '''Download source file to destination. Optionally show progress bar'''
+    def progress_bar_update(chunk_count, chunk_size, total_size):
+        '''Updates progress bar using urlretrieve's report hook'''
+        nonlocal progress_bar
+        if total_size != -1:
+            progress_percentage = int(chunk_count * chunk_size / total_size * 100)
+            progress_bar.update(progress_percentage)
+        else:
+            progress_bar.update(0, 'Filesize unknown')
+
+    source = urllib.parse.quote(source, safe=':/')
+    if silent:
+        urllib.request.urlretrieve(source, destination)
+    else:
+        with xbmcgui.DialogProgress() as progress_bar:
+            progress_bar.create('File Download', f'Downloading {source}')
+            urllib.request.urlretrieve(source, destination, progress_bar_update)
+            if progress_bar.iscanceled() and os.path.isfile(destination):
+                os.remove(destination)
+
+
 def execute(command, get_result=False):
     '''Run command, waiting for it to finish. Returns: command output or None'''
     log.log(f'Executing command: {command}', log.DEBUG)
