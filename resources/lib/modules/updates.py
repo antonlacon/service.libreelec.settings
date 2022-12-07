@@ -17,6 +17,7 @@ from xml.dom import minidom
 import xbmc
 import xbmcgui
 
+import config
 import log
 import modules
 import oe
@@ -260,12 +261,12 @@ class updates(modules.Module):
 
     @log.log_function()
     def get_hardware_flags(self):
-        if oe.PROJECT == "Generic":
+        if config.PROJECT == "Generic":
             return self.get_hardware_flags_x86_64()
-        elif oe.ARCHITECTURE.split('.')[1] in ['aarch64', 'arm' ]:
+        elif config.ARCHITECTURE.split('.')[1] in ['aarch64', 'arm' ]:
             return self.get_hardware_flags_dtflag()
         else:
-            log.log(f'Project is {oe.PROJECT}, no hardware flag available', log.DEBUG)
+            log.log(f'Project is {config.PROJECT}, no hardware flag available', log.DEBUG)
             return ''
 
     @log.log_function()
@@ -402,7 +403,7 @@ class updates(modules.Module):
                 else:
                     channel_version = False
                 if channel_version:
-                    if float(oe.VERSION_ID) <= channel_version:
+                    if float(config.VERSION_ID) <= channel_version:
                         channels.append(channel)
                 else:
                     channels.append(channel)
@@ -424,11 +425,11 @@ class updates(modules.Module):
             self.struct['update']['settings']['Build']['value'] = listItem
             channel = self.struct['update']['settings']['Channel']['value']
             regex = re.compile(self.update_json[channel]['prettyname_regex'])
-            longname = '-'.join([oe.DISTRIBUTION, oe.ARCHITECTURE, oe.VERSION])
+            longname = '-'.join([config.DISTRIBUTION, config.ARCHITECTURE, config.VERSION])
             if regex.search(longname):
                 version = regex.findall(longname)[0]
             else:
-                version = oe.VERSION
+                version = config.VERSION
             if self.struct['update']['settings']['Build']['value']:
                 self.update_file = self.update_json[self.struct['update']['settings']['Channel']['value']]['url'] + self.get_available_builds(self.struct['update']['settings']['Build']['value'])
                 message = f"{oe._(32188)}: {version}\n{oe._(32187)}: {self.struct['update']['settings']['Build']['value']}\n{oe._(32180)}"
@@ -484,7 +485,7 @@ class updates(modules.Module):
 
         def pretty_filename(s):
             """Make filenames prettier to users."""
-            s = self.lchop(s, f'{oe.DISTRIBUTION}-{oe.ARCHITECTURE}-')
+            s = self.lchop(s, f'{config.DISTRIBUTION}-{config.ARCHITECTURE}-')
             s = self.rchop(s, '.tar')
             s = self.rchop(s, '.img.gz')
             return s
@@ -495,32 +496,32 @@ class updates(modules.Module):
         break_loop = False
         if self.update_json and channel and channel in self.update_json:
             regex = re.compile(self.update_json[channel]['prettyname_regex'])
-            if oe.ARCHITECTURE in self.update_json[channel]['project']:
-                for i in sorted(self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'], key=int, reverse=True):
+            if config.ARCHITECTURE in self.update_json[channel]['project']:
+                for i in sorted(self.update_json[channel]['project'][config.ARCHITECTURE]['releases'], key=int, reverse=True):
                     if shortname:
                         # check tarballs, then images, then uboot images for matching file; add subpath if key is present
                         try:
-                            build = self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['file']['name']
+                            build = self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['file']['name']
                             if shortname in build:
                                 try:
-                                    build = f"{self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['file']['subpath']}/{build}"
+                                    build = f"{self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['file']['subpath']}/{build}"
                                 except KeyError:
                                     pass
                                 break
                         except KeyError:
                             pass
                         try:
-                            build = self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['image']['name']
+                            build = self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['image']['name']
                             if shortname in build:
                                 try:
-                                    build = f"{self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['image']['subpath']}/{build}"
+                                    build = f"{self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['image']['subpath']}/{build}"
                                 except KeyError:
                                     pass
                                 break
                         except KeyError:
                             pass
                         try:
-                            for uboot_image_data in self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['uboot']:
+                            for uboot_image_data in self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['uboot']:
                                 build = uboot_image_data['name']
                                 if shortname in build:
                                     try:
@@ -536,7 +537,7 @@ class updates(modules.Module):
                     else:
                         matches = []
                         try:
-                            matches = regex.findall(self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['file']['name'])
+                            matches = regex.findall(self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['file']['name'])
                         except KeyError:
                             pass
                         if matches:
@@ -545,17 +546,17 @@ class updates(modules.Module):
                             # The same release could have tarballs and images. Prioritize tarball in response.
                             # images and uboot images in same release[i] entry are mutually exclusive.
                             try:
-                                update_files.append(pretty_filename(self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['file']['name']))
+                                update_files.append(pretty_filename(self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['file']['name']))
                                 continue
                             except KeyError:
                                 pass
                             try:
-                                update_files.append(pretty_filename(self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['image']['name']))
+                                update_files.append(pretty_filename(self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['image']['name']))
                                 continue
                             except KeyError:
                                 pass
                             try:
-                                for uboot_image_data in self.update_json[channel]['project'][oe.ARCHITECTURE]['releases'][i]['uboot']:
+                                for uboot_image_data in self.update_json[channel]['project'][config.ARCHITECTURE]['releases'][i]['uboot']:
                                     update_files.append(pretty_filename(uboot_image_data['name']))
                             except KeyError:
                                 pass
@@ -571,13 +572,13 @@ class updates(modules.Module):
             systemid = oe.SYSTEMID
         else:
             systemid = "NOSTATS"
-        if oe.BUILDER_VERSION:
-            version = oe.BUILDER_VERSION
+        if config.BUILDER_VERSION:
+            version = config.BUILDER_VERSION
         else:
-            version = oe.VERSION
-        url = f'{self.UPDATE_REQUEST_URL}?i={oe.url_quote(systemid)}&d={oe.url_quote(oe.DISTRIBUTION)}&pa={oe.url_quote(oe.ARCHITECTURE)}&v={oe.url_quote(version)}&f={oe.url_quote(self.hardware_flags)}'
-        if oe.BUILDER_NAME:
-           url += f'&b={oe.url_quote(oe.BUILDER_NAME)}'
+            version = config.VERSION
+        url = f'{self.UPDATE_REQUEST_URL}?i={oe.url_quote(systemid)}&d={oe.url_quote(config.DISTRIBUTION)}&pa={oe.url_quote(config.ARCHITECTURE)}&v={oe.url_quote(version)}&f={oe.url_quote(self.hardware_flags)}'
+        if config.BUILDER_NAME:
+           url += f'&b={oe.url_quote(config.BUILDER_NAME)}'
 
         log.log(f'URL: {url}', log.DEBUG)
         update_json = oe.load_url(url)

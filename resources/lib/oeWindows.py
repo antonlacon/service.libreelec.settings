@@ -72,10 +72,10 @@ class mainWindow(xbmcgui.WindowXMLDialog):
             self.setFocusId(self.guiMenList)
             self.onFocus(self.guiMenList)
             return
-        self.setProperty('arch', oe.ARCHITECTURE)
-        self.setProperty('distri', oe.DISTRIBUTION)
-        self.setProperty('version', oe.VERSION)
-        self.setProperty('build', oe.BUILD)
+        self.setProperty('arch', config.ARCHITECTURE)
+        self.setProperty('distri', config.DISTRIBUTION)
+        self.setProperty('version', config.VERSION)
+        self.setProperty('build', config.BUILD)
         oe.winOeMain = self
         for strModule in sorted(oe.dictModules, key=lambda x: list(oe.dictModules[x].menu.keys())):
             module = oe.dictModules[strModule]
@@ -456,10 +456,10 @@ class wizard(xbmcgui.WindowXMLDialog):
     @log.log_function()
     def onInit(self):
         self.visible = True
-        self.setProperty('arch', oe.ARCHITECTURE)
-        self.setProperty('distri', oe.DISTRIBUTION)
-        self.setProperty('version', oe.VERSION)
-        self.setProperty('build', oe.BUILD)
+        self.setProperty('arch', config.ARCHITECTURE)
+        self.setProperty('distri', config.DISTRIBUTION)
+        self.setProperty('version', config.VERSION)
+        self.setProperty('build', config.BUILD)
         oe.dictModules['system'].do_init()
         self.getControl(self.wizWinTitle).setLabel(oe._(32300))
         self.getControl(self.buttons[3]['id']).setVisible(False)
