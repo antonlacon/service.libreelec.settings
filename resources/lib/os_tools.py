@@ -72,3 +72,8 @@ def get_rpi_cpu_ver():
                     rpi_revision_id = line.split(':')[1]
                     return rpi_revision_id[4:5]
     return None
+
+
+def get_timestamp():
+    '''Return timestamp of system time in YYYYMMDDHHMMSS format'''
+    return time.strftime('%Y%m%d%H%M%S')

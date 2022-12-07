@@ -662,10 +662,6 @@ def load_modules():
             log.log(f'oe::MAIN(loadingModules)(strModule): ERROR: ({repr(e)})', log.ERROR)
 
 
-def timestamp():
-    return time.strftime('%Y%m%d%H%M%S')
-
-
 def split_dialog_text(text):
     ret = [''] * 3
     txt = re.findall('.{1,60}(?:\W|$)', text)
