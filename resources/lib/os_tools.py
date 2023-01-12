@@ -20,6 +20,17 @@ import log
 
 
 ### FILE ACCESS ###
+def read_file(file):
+    '''Return contents of file.'''
+    content = None
+    if os.path.isfile(file):
+        with open(file, 'r', encoding='utf-8') as data:
+            content = data.read()
+    else:
+        log.log(f'Error: Failed to read file: {file}', log.ERROR)
+    return content.strip() if content else ''
+
+
 def read_shell_setting(file, default):
     setting = default
     if os.path.isfile(file):
