@@ -39,7 +39,7 @@ class Service_Thread(threading.Thread):
         if oe.read_setting('libreelec', 'wizard_completed') == None:
             threading.Thread(target=oe.openWizard).start()
         while self.stopped == False:
-            log.log(f'Waiting', log.INFO)
+            log.log('Waiting', log.INFO)
             conn, addr = self.sock.accept()
             message = (conn.recv(1024)).decode('utf-8')
             conn.close()
@@ -98,7 +98,7 @@ class Monitor(xbmc.Monitor):
             if timeout < 1:
                 continue
             if xbmc.getGlobalIdleTime() / 60 >= timeout:
-                log.log(f'Idle timeout reached', log.DEBUG)
+                log.log('Idle timeout reached', log.DEBUG)
                 oe.standby_devices()
         if hasattr(oe, 'winOeMain') and hasattr(oe.winOeMain, 'visible'):
             if oe.winOeMain.visible == True:
