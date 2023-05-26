@@ -651,8 +651,8 @@ class updates(modules.Module):
         log.log(f'states: [{bootloader}], [{vl805}]', log.DEBUG)
         if bootloader or vl805:
             values = []
-            values.append('BOOTLOADER="%s"' % ('yes' if bootloader else 'no'))
-            values.append('VL805="%s"' % ('yes' if vl805 else 'no'))
+            values.append(f'BOOTLOADER="{"yes" if bootloader else "no"}"')
+            values.append(f'VL805="{"yes" if vl805 else "no"}"')
             with open(self.RPI_FLASHING_TRIGGER, 'w') as trigger:
                 trigger.write('\n'.join(values))
         else:

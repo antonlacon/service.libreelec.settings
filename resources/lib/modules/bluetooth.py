@@ -597,7 +597,7 @@ class Bluez_Agent(dbus_bluez.Agent):
         if not hasattr(self.parent, 'pinkey_window'):
             self.parent.open_pinkey_window()
             self.parent.pinkey_window.device = device
-            self.parent.pinkey_window.set_label1('Passkey: %06u' % passkey)
+            self.parent.pinkey_window.set_label1(f'Passkey: {passkey:06d}')
 
     @log.log_function()
     def display_pincode(self, device, pincode):

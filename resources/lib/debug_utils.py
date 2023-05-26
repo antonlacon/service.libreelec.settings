@@ -27,7 +27,7 @@ def format_vars(variables: List[Tuple[str, Any]]) -> str:
     var_list.sort(key=lambda i: i[0])
     lines = []
     for var, val in var_list:
-        lines.append('{} = {}'.format(var, pformat(val, indent=4)))
+        lines.append('{var} = {pformat(val, indent=4}')
     return '\n'.join(lines)
 
 
@@ -36,9 +36,9 @@ def _format_code_context(code_context: List[str], lineno: int, index: int) -> st
     if code_context is not None:
         for i, line in enumerate(code_context, lineno - index):
             if i == lineno:
-                context += '{}:>{}'.format(str(i).rjust(5), line)
+                context += '{str(i).rjust(5)}:>{line}'
             else:
-                context += '{}: {}'.format(str(i).rjust(5), line)
+                context += '{str(i).rjust(5)}: {line}'
     return context
 
 
