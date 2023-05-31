@@ -12,7 +12,6 @@ import threading
 import time
 from datetime import datetime
 from functools import cmp_to_key
-from xml.dom import minidom
 
 import xbmc
 import xbmcgui
@@ -20,7 +19,6 @@ import xbmcgui
 import log
 import modules
 import oe
-import oeWindows
 import os_tools
 
 
@@ -169,21 +167,26 @@ class updates(modules.Module):
     @log.log_function()
     def __init__(self, oeMain):
         super().__init__()
-        self.keyboard_layouts = False
-        self.nox_keyboard_layouts = False
+        self.hardware_flags = None
+        self.is_service = False
         self.last_update_check = 0
-        self.arrVariants = {}
+        self.update_file = None
+        self.update_in_progress = False
+        self.update_json = None
+        self.update_thread = None
+        self.rpi_flashing_state = None
+
 
     @log.log_function()
     def start_service(self):
-            self.is_service = True
-            self.load_values()
-            self.set_auto_update()
-            del self.is_service
+        self.is_service = True
+        self.load_values()
+        self.set_auto_update()
+        del self.is_service
 
     @log.log_function()
     def stop_service(self):
-        if hasattr(self, 'update_thread'):
+        if self.update_thread:
             self.update_thread.stop()
 
     @log.log_function()
@@ -214,12 +217,12 @@ class updates(modules.Module):
     @log.log_function()
     def get_gpu_card(self):
         for root, dirs, files in os.walk("/sys/class/drm", followlinks=False):
-            for dir in dirs:
+            for directory in dirs:
                 try:
-                    with open(os.path.join(root, dir, 'status'), 'r') as infile:
+                    with open(os.path.join(root, directory, 'status'), encoding='utf-8', mode='r') as infile:
                         for line in [x for x in infile if x.replace('\n', '') == 'connected']:
-                            return dir.split("-")[0]
-                except:
+                            return directory.split("-")[0]
+                except Exception:
                     pass
             break
         return 'card0'
@@ -261,11 +264,10 @@ class updates(modules.Module):
     def get_hardware_flags(self):
         if oe.PROJECT == "Generic":
             return self.get_hardware_flags_x86_64()
-        elif oe.ARCHITECTURE.split('.')[1] in ['aarch64', 'arm' ]:
+        if oe.ARCHITECTURE.split('.')[1] in ['aarch64', 'arm' ]:
             return self.get_hardware_flags_dtflag()
-        else:
-            log.log(f'Project is {oe.PROJECT}, no hardware flag available', log.DEBUG)
-            return ''
+        log.log(f'Project is {oe.PROJECT}, no hardware flag available', log.DEBUG)
+        return ''
 
     @log.log_function()
     def load_values(self):
@@ -336,7 +338,7 @@ class updates(modules.Module):
         if listItem:
             self.set_value(listItem)
         if not hasattr(self, 'update_disabled'):
-            if hasattr(self, 'update_thread'):
+            if self.update_thread:
                 self.update_thread.wait_evt.set()
             else:
                 self.update_thread = updateThread(oe)
@@ -368,22 +370,22 @@ class updates(modules.Module):
         a_builder = a_items[0]
         b_builder = b_items[0]
 
-        if (a_builder == b_builder):
-          try:
-            a_float = float(a_items[1])
-          except:
-            log.log(f"invalid channel name: '{a}'", log.WARNING)
-            a_float = 0
-          try:
-            b_float = float(b_items[1])
-          except:
-            log.log(f"invalid channel name: '{b}'", log.WARNING)
-            b_float = 0
-          return (b_float - a_float)
-        elif (a_builder < b_builder):
-          return -1
-        elif (a_builder > b_builder):
-          return +1
+        if a_builder == b_builder:
+            try:
+                a_float = float(a_items[1])
+            except ValueError:
+                log.log(f"invalid channel name: '{a}'", log.WARNING)
+                a_float = 0
+            try:
+                b_float = float(b_items[1])
+            except ValueError:
+                log.log(f"invalid channel name: '{b}'", log.WARNING)
+                b_float = 0
+            return b_float - a_float
+        if a_builder < b_builder:
+            return -1
+        if a_builder > b_builder:
+            return +1
 
     @log.log_function()
     def get_channels(self):
@@ -563,20 +565,14 @@ class updates(modules.Module):
 
     @log.log_function()
     def check_updates_v2(self, force=False):
-        if hasattr(self, 'update_in_progress'):
+        if self.update_in_progress:
             log.log('Update in progress (exit)', log.DEBUG)
             return
-        if self.struct['update']['settings']['SubmitStats']['value'] == '1':
-            systemid = oe.SYSTEMID
-        else:
-            systemid = "NOSTATS"
-        if oe.BUILDER_VERSION:
-            version = oe.BUILDER_VERSION
-        else:
-            version = oe.VERSION
+        systemid = oe.SYSTEMID if self.struct['update']['settings']['SubmitStats']['value'] == '1' else 'NOSTATS'
+        version = oe.BUILDER_VERSION if oe.BUILDER_VERSION else oe.VERSION
         url = f'{self.UPDATE_REQUEST_URL}?i={oe.url_quote(systemid)}&d={oe.url_quote(oe.DISTRIBUTION)}&pa={oe.url_quote(oe.ARCHITECTURE)}&v={oe.url_quote(version)}&f={oe.url_quote(self.hardware_flags)}'
         if oe.BUILDER_NAME:
-           url += f'&b={oe.url_quote(oe.BUILDER_NAME)}'
+            url += f'&b={oe.url_quote(oe.BUILDER_NAME)}'
 
         log.log(f'URL: {url}', log.DEBUG)
         update_json = oe.load_url(url)
@@ -591,11 +587,13 @@ class updates(modules.Module):
                     oe.notify(oe._(32363), oe._(32364))
                 if self.struct['update']['settings']['AutoUpdate']['value'] == 'auto' and force == False:
                     self.update_in_progress = True
-                    self.do_autoupdate(None, True)
+                    self.do_autoupdate(True)
+        else:
+            log.log('No system update information found.', log.DEBUG)
 
     @log.log_function()
-    def do_autoupdate(self, listItem=None, silent=False):
-        if hasattr(self, 'update_file'):
+    def do_autoupdate(self, silent=False):
+        if self.update_file:
             if not os.path.exists(self.LOCAL_UPDATE_DIR):
                 os.makedirs(self.LOCAL_UPDATE_DIR)
             downloaded = oe.download_file(self.update_file, oe.TEMP + 'update_file', silent)
@@ -606,12 +604,12 @@ class updates(modules.Module):
                     oe.notify(oe._(32363), oe._(32366))
                 shutil.move(oe.TEMP + 'update_file', self.LOCAL_UPDATE_DIR + self.update_file)
                 os.sync()
-                if silent == False:
+                if silent is False:
                     oe.winOeMain.close()
                     oe.xbmcm.waitForAbort(1)
                     os_tools.execute('/usr/bin/systemctl --no-block reboot')
             else:
-                delattr(self, 'update_in_progress')
+                self.update_in_progress = False
 
     def get_rpi_flashing_state(self):
         try:
@@ -672,21 +670,21 @@ class updates(modules.Module):
     def get_rpi_eeprom(self, device):
         values = []
         if os.path.exists(self.RPI_FLASHING_TRIGGER):
-            with open(self.RPI_FLASHING_TRIGGER, 'r') as trigger:
+            with open(self.RPI_FLASHING_TRIGGER, encoding='utf-8', mode='r') as trigger:
                 values = trigger.read().split('\n')
         log.log(f'values: {values}', log.DEBUG)
-        return 'true' if (f'{device}="yes"') in values else 'false'
+        return 'true' if f'{device}="yes"' in values else 'false'
 
     @log.log_function()
     def set_rpi_eeprom(self):
-        bootloader = (self.struct['rpieeprom']['settings']['bootloader']['value'] == 'true')
-        vl805 = (self.struct['rpieeprom']['settings']['vl805']['value'] == 'true')
+        bootloader = self.struct['rpieeprom']['settings']['bootloader']['value'] == 'true'
+        vl805 = self.struct['rpieeprom']['settings']['vl805']['value'] == 'true'
         log.log(f'states: [{bootloader}], [{vl805}]', log.DEBUG)
         if bootloader or vl805:
             values = []
-            values.append('BOOTLOADER="%s"' % ('yes' if bootloader else 'no'))
-            values.append('VL805="%s"' % ('yes' if vl805 else 'no'))
-            with open(self.RPI_FLASHING_TRIGGER, 'w') as trigger:
+            values.append(f'BOOTLOADER="{"yes" if bootloader else "no"}"')
+            values.append(f'VL805="{"yes" if vl805 else "no"}"')
+            with open(self.RPI_FLASHING_TRIGGER, encoding='utf-8', mode='w') as trigger:
                 trigger.write('\n'.join(values))
         else:
             if os.path.exists(self.RPI_FLASHING_TRIGGER):
@@ -725,10 +723,10 @@ class updateThread(threading.Thread):
 
     @log.log_function()
     def run(self):
-        while self.stopped == False:
+        while self.stopped is False:
             if not xbmc.Player().isPlaying():
                 oe.dictModules['updates'].check_updates_v2()
-            if not hasattr(oe.dictModules['updates'], 'update_in_progress'):
+            if not getattr(oe.dictModules['updates'], 'update_in_progress'):
                 self.wait_evt.wait(21600)
             else:
                 # TODO this should check if update notifications are enabled too?
