@@ -367,10 +367,6 @@ msgctxt "#32018"
 msgid "  - Custom Channel 2"
 msgstr "  - користувацький канал 2"
 
-msgctxt "#32019"
-msgid "  - Custom Channel 3"
-msgstr "  - користувацький канал 3"
-
 msgctxt "#32020"
 msgid "Available Versions"
 msgstr "Доступні версії"
