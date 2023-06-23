@@ -304,7 +304,7 @@ msgid "The firewall blocks unwanted network traffic. Home (default) allows traff
 msgstr "Zaštitni zid blokira neželjeni mrežni promet. Početna (zadano) dozvoljava promet samo iz privatnih mrežnih raspona (192.168.x.x, 172.16.x.x i 10.x.x.x). Javna blokira sav promet sa svih mreža. Prilagođena koristi pravila u /storage/.config/iptables. Isključeno onemogućava zaštitni zid."
 
 msgctxt "#772"
-msgid "Checking for a new version will submit the installed Distribution, Project, CPU Arch and Version to the update server. This data is also used to report basic statistics for the project. To continue checking for updates while opting-out of stats reporting, disable this option."
+msgid "Enable to share the installed distribution, version, and related device information periodically with the developers. This data is used to gather information on how distribution is used. Disable to opt out of reporting device information."
 msgstr "Provjera nove verzije će poslati instaliranu distribuciju, projekat, CPU Arch i verziju serveru za ažuriranje. Ovi podaci se također koriste za izvještavanje o osnovnoj statistici za projekat. Da biste nastavili provjeravati ažuriranja dok se isključujete iz izvještavanja o statistikama, onemogućite ovu opciju."
 
 msgctxt "#773"
