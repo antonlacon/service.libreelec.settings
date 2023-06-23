@@ -295,10 +295,6 @@ msgctxt "#760"
 msgid "Select an update channel"
 msgstr "Вибір каналу оновлення"
 
-msgctxt "#761"
-msgid "Enable to allow entering a custom update url"
-msgstr "Увімкніть, щоб можна було ввести власну URL-адресу для оновлення"
-
 msgctxt "#762"
 msgid "Enter a custom update url (url should be the root of the update files)"
 msgstr "Введіть власну URL-адресу для оновлення (має вказувати на кореневу теку з файлами оновлень)"
@@ -358,10 +354,6 @@ msgstr "Автоматичне оновлення"
 msgctxt "#32015"
 msgid "Update Channel"
 msgstr "Канал оновлень"
-
-msgctxt "#32016"
-msgid "Show Custom Channels"
-msgstr "Показати користувацькі канали"
 
 msgctxt "#32017"
 msgid "  - Custom Channel 1"
