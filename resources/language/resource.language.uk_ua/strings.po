@@ -940,7 +940,7 @@ msgid "Update available"
 msgstr "Доступно оновлення"
 
 msgctxt "#32365"
-msgid "Show Update Notifications"
+msgid "Show Notifications"
 msgstr "Показувати сповіщення про оновлення"
 
 msgctxt "#32366"
