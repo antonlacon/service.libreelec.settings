@@ -351,7 +351,7 @@ msgid "Available Versions"
 msgstr "Pieejamās versijas"
 
 msgctxt "#32021"
-msgid "Submit Statistics"
+msgid "Share Statistics"
 msgstr "Statistikas nosūtīšana"
 
 msgctxt "#32022"
