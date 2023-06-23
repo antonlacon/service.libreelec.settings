@@ -308,7 +308,7 @@ msgid "The firewall blocks unwanted network traffic. Home (default) allows traff
 msgstr "Брандмауер блокує небажаний мережевий трафік. \"Вдома\" (за замовчуванням) дозволяє трафік з тільки приватних мереж (192.168.x.x, 172.16.x.x та 10.x.x.x) only. \"Публічний\" блокує трафік з усіх мереж. \"Власний\" використовує правила з файлу /storage/.config/iptables. \"Вимкнено\" вимикає брандмауер."
 
 msgctxt "#772"
-msgid "Checking for a new version will submit the installed Distribution, Project, CPU Arch and Version to the update server. This data is also used to report basic statistics for the project. To continue checking for updates while opting-out of stats reporting, disable this option."
+msgid "Enable to share the installed distribution, version, and related device information periodically with the developers. This data is used to gather information on how distribution is used. Disable to opt out of reporting device information."
 msgstr "Під час перевірки версії на сервер оновлень буде надіслано наступні відомості: встановлений дистрибутив, проект, архітектура процесора та версія."
 
 msgctxt "#773"
