@@ -930,7 +930,7 @@ msgid "Update available"
 msgstr "Galimas atnaujinimas"
 
 msgctxt "#32365"
-msgid "Show Update Notifications"
+msgid "Show Notifications"
 msgstr "Rodyti atnaujinimų pranešimus"
 
 msgctxt "#32366"
