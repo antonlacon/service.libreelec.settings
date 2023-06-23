@@ -291,10 +291,6 @@ msgctxt "#760"
 msgid "Select an update channel"
 msgstr "Odaberite kanal ažuriranja"
 
-msgctxt "#761"
-msgid "Enable to allow entering a custom update url"
-msgstr "Omogućite unos prilagođenog URL-a za ažuriranje"
-
 msgctxt "#762"
 msgid "Enter a custom update url (url should be the root of the update files)"
 msgstr "Unesite prilagođeni URL ažuriranja (URL treba biti korijen datoteka ažuriranja)"
@@ -354,10 +350,6 @@ msgstr "Automatska ažuriranja"
 msgctxt "#32015"
 msgid "Update Channel"
 msgstr "Ažuriraj kanal"
-
-msgctxt "#32016"
-msgid "Show Custom Channels"
-msgstr "Prikaži prilagođene kanale"
 
 msgctxt "#32017"
 msgid "  - Custom Channel 1"
