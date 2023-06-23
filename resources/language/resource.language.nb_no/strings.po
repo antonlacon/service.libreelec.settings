@@ -930,7 +930,7 @@ msgid "Update available"
 msgstr "Oppdatering tilgjengelig"
 
 msgctxt "#32365"
-msgid "Show Update Notifications"
+msgid "Show Notifications"
 msgstr "Vis Oppdateringsvarler"
 
 msgctxt "#32366"
