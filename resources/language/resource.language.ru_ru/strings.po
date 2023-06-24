@@ -360,8 +360,8 @@ msgid "Release"
 msgstr "Канал обновлений"
 
 msgctxt "#32017"
-msgid "  - Custom Channel 1"
-msgstr "  - Пользовательский канал 1"
+msgid "Custom Channel"
+msgstr "Пользовательский канал"
 
 msgctxt "#32020"
 msgid "Available Versions"

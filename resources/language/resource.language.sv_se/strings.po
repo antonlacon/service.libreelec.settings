@@ -357,8 +357,8 @@ msgid "Release"
 msgstr "Kanal för uppdateringar"
 
 msgctxt "#32017"
-msgid "  - Custom Channel 1"
-msgstr "  - Anpassad kanal 1"
+msgid "Custom Channel"
+msgstr "Anpassad kanal"
 
 msgctxt "#32020"
 msgid "Available Versions"

@@ -356,8 +356,8 @@ msgid "Release"
 msgstr "Канал оновлень"
 
 msgctxt "#32017"
-msgid "  - Custom Channel 1"
-msgstr "  - користувацький канал 1"
+msgid "Custom Channel"
+msgstr "користувацький канал"
 
 msgctxt "#32020"
 msgid "Available Versions"

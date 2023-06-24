@@ -352,8 +352,8 @@ msgid "Release"
 msgstr "Ažuriraj kanal"
 
 msgctxt "#32017"
-msgid "  - Custom Channel 1"
-msgstr "  - Prilagođeni kanal 1"
+msgid "Custom Channel"
+msgstr "Prilagođeni kanal"
 
 msgctxt "#32020"
 msgid "Available Versions"
