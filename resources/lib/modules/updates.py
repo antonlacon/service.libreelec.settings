@@ -443,7 +443,7 @@ class updates(modules.Module):
         if not url:
             url = self.UPDATE_DOWNLOAD_URL % ('releases', 'releases.json')
         if not url.startswith(('http://', 'https://', 'file://')):
-            url = f'https://{url}'
+            url = f'file://{url}' if os.path.isfile(url) else f'https://{url}'
         if not url.endswith('.json'):
             url = f'{url}/releases.json'
         data = oe.load_url(url)
