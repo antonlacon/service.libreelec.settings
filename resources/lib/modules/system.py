@@ -13,6 +13,7 @@ from xml.dom import minidom
 import xbmc
 import xbmcgui
 
+import config
 import hostname
 import log
 import modules
@@ -528,6 +529,13 @@ class system(modules.Module):
                 return 0
 
     @log.log_function()
+    def generate_art_cache_filter(self):
+        unused_files = os_tools.execute('texturecache.py p 2>/dev/null | head -n -3 | tail -n +3', get_result=True)
+        for line in unused_files.splitlines():
+            line = line.split('|')
+            self.BACKUP_FILTER.append(f'{config.XBMC_USER_HOME}/.kodi/userdata/Thumbnails/{line[1]}')
+
+    @log.log_function()
     def do_backup(self, listItem=None):
         try:
             self.total_backup_size = 1
@@ -562,6 +570,7 @@ class system(modules.Module):
                     pass
                 self.backup_dlg = xbmcgui.DialogProgress()
                 self.backup_dlg.create('LibreELEC', oe._(32375))
+                self.generate_art_cache_filter()
                 if not os.path.exists(self.BACKUP_DESTINATION):
                     os.makedirs(self.BACKUP_DESTINATION)
                 self.backup_file = f'{hostname.get_hostname()}-{oe.timestamp()}.tar'
