@@ -8,7 +8,7 @@ import os_tools
 
 
 def get_hostname():
-    return os_tools.read_shell_setting(config.HOSTNAME, config.OS_RELEASE['NAME'])
+    return os_tools.read_file_setting(config.HOSTNAME, config.OS_RELEASE['NAME'])
 
 
 def set_hostname(hostname):
