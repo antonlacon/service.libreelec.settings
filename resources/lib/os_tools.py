@@ -33,7 +33,7 @@ def import_from_file(module_name, file_path):
     return None
 
 
-def read_shell_setting(file, default=None):
+def read_file_setting(file, default=None):
     '''Read the first line of a file as the setting'''
     setting = default if default else ''
     if os.path.isfile(file):
