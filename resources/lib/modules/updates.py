@@ -588,7 +588,7 @@ class updates(modules.Module):
         if self.update_in_progress:
             log.log('Update in progress (exit)', log.DEBUG)
             return
-        systemid = oe.SYSTEMID if self.struct['update']['settings']['SubmitStats']['value'] == '1' else 'NOSTATS'
+        systemid = config.SYSTEMID if self.struct['update']['settings']['SubmitStats']['value'] == '1' else 'NOSTATS'
         version = config.BUILDER_VERSION if config.BUILDER_VERSION else config.VERSION
         url = f'{self.UPDATE_REQUEST_URL}?i={oe.url_quote(systemid)}&d={oe.url_quote(config.DISTRIBUTION)}&pa={oe.url_quote(config.ARCHITECTURE)}&v={oe.url_quote(version)}&f={oe.url_quote(self.hardware_flags)}'
         if config.BUILDER_NAME:
