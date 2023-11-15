@@ -826,10 +826,6 @@ BOOT_STATUS = load_file('/storage/.config/boot.status')
 
 try:
     configFile = f'{XBMC_USER_HOME}/userdata/addon_data/service.libreelec.settings/oe_settings.xml'
-    if not os.path.exists(f'{XBMC_USER_HOME}/userdata/addon_data/service.libreelec.settings'):
-        os.makedirs(f'{XBMC_USER_HOME}/userdata/addon_data/service.libreelec.settings')
-    if not os.path.exists(f'{CONFIG_CACHE}/services'):
-        os.makedirs(f'{CONFIG_CACHE}/services')
 except:
     pass
 
