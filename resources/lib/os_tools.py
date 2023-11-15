@@ -33,12 +33,16 @@ def import_from_file(module_name, file_path):
     return None
 
 
-def read_shell_setting(file, default):
-    '''Read the content of a file as the setting'''
+def read_file_setting(file, default=None):
+    '''Return content of a one-line file as the setting'''
+    if default is None:
+        default = ''
     setting = default
     if os.path.isfile(file):
         with open(file, mode='r', encoding='utf-8') as data:
             setting = data.readline().strip()
+    else:
+        log.log(f'File not found for reading: {file}', log.DEBUG)
     return setting
 
 
@@ -58,6 +62,8 @@ def read_shell_settings(file, defaults=None):
                     if value:
                         value = value.removeprefix('"').removesuffix('"')
                     settings[name] = value
+    else:
+        log.log(f'File not found for reading: {file}', log.DEBUG)
     return settings
 
 
