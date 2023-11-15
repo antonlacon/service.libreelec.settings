@@ -734,9 +734,6 @@ minidom.Element.writexml = fixed_writexml
 ############################################################################################
 
 winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)
-SYSTEM_ID = load_file('/etc/machine-id') if os.path.isfile('/etc/machine-id') else os.environ.get('SYSTEMID', '')
-
-BOOT_STATUS = load_file('/storage/.config/boot.status')
 
 ############################################################################################
 
