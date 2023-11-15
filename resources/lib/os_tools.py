@@ -34,18 +34,22 @@ def import_from_file(module_name, file_path):
 
 
 def read_shell_setting(file, default):
+    '''Read the content of a file as the setting'''
     setting = default
     if os.path.isfile(file):
-        with open(file) as input:
-            setting = input.readline().strip()
+        with open(file, mode='r', encoding='utf-8') as data:
+            setting = data.readline().strip()
     return setting
 
 
-def read_shell_settings(file, defaults={}):
+def read_shell_settings(file, defaults=None):
+    '''Parse settings from text file, placing each value into a dictionary'''
+    if defaults is None:
+        defaults = {}
     settings = defaults
     if os.path.isfile(file):
-        with open(file) as input:
-            for line in input:
+        with open(file, mode='r', encoding='utf-8') as data:
+            for line in data:
                 line = line.strip()
                 # ignore comments
                 if not line.startswith('#'):
