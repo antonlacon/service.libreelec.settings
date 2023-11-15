@@ -21,6 +21,7 @@ import xbmc
 import xbmcaddon
 import xbmcgui
 
+import config
 import defaults
 import log
 import os_tools
@@ -735,73 +736,12 @@ def fixed_writexml(self, writer, indent='', addindent='', newl=''):
         writer.write(f'/>{newl}')
 
 
-def parse_os_release():
-    os_release_fields = re.compile(r'(?!#)(?P<key>.+)=(?P<quote>[\'\"]?)(?P<value>.+)(?P=quote)$')
-    os_release_unescape = re.compile(r'\\(?P<escaped>[\'\"\\])')
-    try:
-        with open('/etc/os-release') as f:
-            info = {}
-            for line in f:
-                m = re.match(os_release_fields, line)
-                if m is not None:
-                    key = m.group('key')
-                    value = re.sub(os_release_unescape, r'\g<escaped>', m.group('value'))
-                    info[key] = value
-            return info
-    except OSError:
-        return None
-
-
-def get_os_release():
-    distribution = version = version_id = architecture = build = project = device = builder_name = builder_version = ''
-    os_release_info = parse_os_release()
-    if os_release_info is not None:
-        if 'NAME' in os_release_info:
-            distribution = os_release_info['NAME']
-        if 'VERSION' in os_release_info:
-            version = os_release_info['VERSION']
-        if 'VERSION_ID' in os_release_info:
-            version_id = os_release_info['VERSION_ID']
-        if 'LIBREELEC_ARCH' in os_release_info:
-            architecture = os_release_info['LIBREELEC_ARCH']
-        if 'LIBREELEC_BUILD' in os_release_info:
-            build = os_release_info['LIBREELEC_BUILD']
-        if 'LIBREELEC_PROJECT' in os_release_info:
-            project = os_release_info['LIBREELEC_PROJECT']
-        if 'LIBREELEC_DEVICE' in os_release_info:
-            device = os_release_info['LIBREELEC_DEVICE']
-        if 'BUILDER_NAME' in os_release_info:
-            builder_name = os_release_info['BUILDER_NAME']
-        if 'BUILDER_VERSION' in os_release_info:
-            builder_version = os_release_info['BUILDER_VERSION']
-        return (
-            distribution,
-            version,
-            version_id,
-            architecture,
-            build,
-            project,
-            device,
-            builder_name,
-            builder_version
-            )
-
 minidom.Element.writexml = fixed_writexml
 
 ############################################################################################
 # Base Environment
 ############################################################################################
 
-os_release_data = get_os_release()
-DISTRIBUTION = os_release_data[0]
-VERSION = os_release_data[1]
-VERSION_ID = os_release_data[2]
-ARCHITECTURE = os_release_data[3]
-BUILD = os_release_data[4]
-PROJECT = os_release_data[5]
-DEVICE = os_release_data[6]
-BUILDER_NAME = os_release_data[7]
-BUILDER_VERSION = os_release_data[8]
 winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)
 if os.path.exists('/etc/machine-id'):
     SYSTEMID = load_file('/etc/machine-id')
@@ -809,7 +749,7 @@ else:
     SYSTEMID = os.environ.get('SYSTEMID', '')
 
 try:
-    if PROJECT == 'RPi':
+    if config.PROJECT == 'RPi':
         RPI_CPU_VER = os_tools.execute('vcgencmd otp_dump 2>/dev/null | grep 30: | cut -c8', get_result=True).replace('\n','')
     else:
         RPI_CPU_VER = None
