@@ -15,7 +15,7 @@ import time
 
 def get_timezone():
     '''Read timezone setting from file or return default of UTC timezone.'''
-    return os_tools.read_shell_setting(config.TIMEZONE, default='TIMEZONE=UTC').split('=', 1)[1]
+    return os_tools.read_file_setting(config.TIMEZONE, default='TIMEZONE=UTC').split('=', 1)[1]
 
 
 def guess_timezone():

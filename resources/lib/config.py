@@ -25,10 +25,12 @@ ADDON_CONFIG_FILE = f'{XBMC_USER_HOME}/userdata/addon_data/service.libreelec.set
 CONFIG_CACHE = os.environ.get('CONFIG_CACHE', '/storage/.cache')
 USER_CONFIG = os.environ.get('USER_CONFIG', '/storage/.config')
 
+SYSTEMID = os_tools.read_file_setting('/etc/machine-id') if os.path.isfile('/etc/machine-id') else os.environ.get('SYSTEMID', '')
 HOSTNAME = os.path.join(CONFIG_CACHE, 'hostname')
 HOSTS_CONF = os.path.join(USER_CONFIG, 'hosts.conf')
+TIMEZONE = os.path.join(CONFIG_CACHE, 'timezone')
 
 REGDOMAIN_CONF = os.path.join(CONFIG_CACHE, 'regdomain.conf')
 SETREGDOMAIN = '/usr/lib/iw/setregdomain'
 
-TIMEZONE = os.path.join(CONFIG_CACHE, 'timezone')
+BOOT_STATUS = os_tools.read_file_setting('/storage/.config/boot.status')
