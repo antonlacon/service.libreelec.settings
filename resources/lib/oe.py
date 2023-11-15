@@ -355,16 +355,6 @@ def set_service(service, options, state):
     log.log('exit_function', log.DEBUG)
 
 
-@log.log_function()
-def load_file(filename):
-    content = ''
-    if os.path.isfile(filename):
-        with open(filename, 'r', encoding='utf-8') as objFile:
-            content = objFile.read()
-    else:
-        log.log(f'Error: Failed to read file: {filename}', log.ERROR)
-    return content.strip() if content else content
-
 def url_quote(var):
     return urllib.parse.quote(var, safe="")
 
