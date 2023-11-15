@@ -28,10 +28,14 @@ def read_shell_settings(file, defaults={}):
     if os.path.isfile(file):
         with open(file) as input:
             for line in input:
-                name, value = line.strip().split('=', 1)
-                if len(value) and value[0] in ['"', '"'] and value[0] == value[-1]:
-                    value = value[1:-1]
-                settings[name] = value
+                line = line.strip()
+                # ignore comments
+                if not line.startswith('#'):
+                    name, value = line.split('=', 1)
+                    # remove quotes
+                    if value:
+                        value = value.removeprefix('"').removesuffix('"')
+                    settings[name] = value
     return settings
 
 
