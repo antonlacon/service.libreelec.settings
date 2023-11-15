@@ -744,14 +744,6 @@ minidom.Element.writexml = fixed_writexml
 winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)
 SYSTEM_ID = load_file('/etc/machine-id') if os.path.isfile('/etc/machine-id') else os.environ.get('SYSTEMID', '')
 
-try:
-    if config.PROJECT == 'RPi':
-        RPI_CPU_VER = os_tools.execute('vcgencmd otp_dump 2>/dev/null | grep 30: | cut -c8', get_result=True).replace('\n','')
-    else:
-        RPI_CPU_VER = None
-except Exception:
-    RPI_CPU_VER = None
-
 BOOT_STATUS = load_file('/storage/.config/boot.status')
 
 ############################################################################################

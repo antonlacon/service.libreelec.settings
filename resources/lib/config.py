@@ -30,3 +30,7 @@ HOSTS_CONF = os.path.join(USER_CONFIG, 'hosts.conf')
 
 REGDOMAIN_CONF = os.path.join(CONFIG_CACHE, 'regdomain.conf')
 SETREGDOMAIN = '/usr/lib/iw/setregdomain'
+
+BOOT_STATUS = os_tools.read_file_setting('/storage/.config/boot.status')
+
+RPI_DEVICE_TYPE = os_tools.get_rpi_device_type() if PROJECT == 'RPi' else None
