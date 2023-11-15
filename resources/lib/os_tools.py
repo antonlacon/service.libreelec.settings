@@ -15,19 +15,23 @@ import log
 
 
 ### FILE ACCESS ###
-def read_shell_setting(file, default):
-    setting = default
+def read_shell_setting(file, default=None):
+    '''Read the first line of a file as the setting'''
+    setting = default if default else ''
     if os.path.isfile(file):
-        with open(file) as input:
-            setting = input.readline().strip()
+        with open(file, mode='r', encoding='utf-8') as data:
+            setting = data.readline().strip()
+    else:
+        log.log(f'File not found: {file}', log.DEBUG)
     return setting
 
 
-def read_shell_settings(file, defaults={}):
-    settings = defaults
+def read_shell_settings(file, defaults=None):
+    '''Parse settings from text file, placing each value into a dictionary'''
+    settings = defaults if defaults else {}
     if os.path.isfile(file):
-        with open(file) as input:
-            for line in input:
+        with open(file, mode='r', encoding='utf-8') as data:
+            for line in data:
                 line = line.strip()
                 # ignore comments
                 if not line.startswith('#'):
@@ -36,6 +40,8 @@ def read_shell_settings(file, defaults={}):
                     if value:
                         value = value.removeprefix('"').removesuffix('"')
                     settings[name] = value
+    else:
+        log.log(f'File not found: {file}', log.DEBUG)
     return settings
 
 
