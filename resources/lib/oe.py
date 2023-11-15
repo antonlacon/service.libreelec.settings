@@ -743,10 +743,7 @@ minidom.Element.writexml = fixed_writexml
 ############################################################################################
 
 winOeMain = oeWindows.mainWindow('service-LibreELEC-Settings-mainWindow.xml', __cwd__, 'Default', oeMain=__oe__)
-if os.path.exists('/etc/machine-id'):
-    SYSTEMID = load_file('/etc/machine-id')
-else:
-    SYSTEMID = os.environ.get('SYSTEMID', '')
+SYSTEM_ID = load_file('/etc/machine-id') if os.path.isfile('/etc/machine-id') else os.environ.get('SYSTEMID', '')
 
 try:
     if config.PROJECT == 'RPi':
