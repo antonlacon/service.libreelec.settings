@@ -309,7 +309,6 @@ def set_service_option(service, option, value):
 
 @log.log_function()
 def get_service_option(service, option, default=None):
-    lines = []
     conf_file_name = ''
     if os.path.exists(f'{CONFIG_CACHE}/services/{service}.conf'):
         conf_file_name = f'{CONFIG_CACHE}/services/{service}.conf'
@@ -336,8 +335,6 @@ def set_service(service, options, state):
     log.log(f'service: {repr(service)}', log.DEBUG)
     log.log(f'options: {repr(options)}', log.DEBUG)
     log.log(f'state: {repr(state)}', log.DEBUG)
-    config = {}
-    changed = False
 
     # Service Enabled
     if state == 1:
