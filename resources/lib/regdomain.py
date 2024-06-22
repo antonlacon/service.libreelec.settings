@@ -186,21 +186,20 @@ REGDOMAIN_LIST = [REGDOMAIN_DEFAULT] + [
 ]
 
 
-def get_regdomain():
-    if not os.path.isfile(config.REGDOMAIN_CONF):
-        return REGDOMAIN_DEFAULT
-    code = f'({open(config.REGDOMAIN_CONF).readline().rstrip()[-2:]})'
-    regdomain = next((l for l in REGDOMAIN_LIST if code in l),
-                     REGDOMAIN_DEFAULT)
+def get_regdomain(regdomain=REGDOMAIN_DEFAULT):
+    '''Get wireless regulatory domain from file and compare to wireless-regdb entries.'''
+    if os.path.isfile(config.REGDOMAIN_CONF):
+        code = f'({open(config.REGDOMAIN_CONF).readline().rstrip()[-2:]})'
+        regdomain = next((l for l in REGDOMAIN_LIST if code in l), REGDOMAIN_DEFAULT)
     return regdomain
 
 
 def set_regdomain(regdomain):
+    '''Write wireless regulatory db entry to file and update active wireless use.'''
     if regdomain == REGDOMAIN_DEFAULT:
         if os.path.isfile(config.REGDOMAIN_CONF):
             os.remove(config.REGDOMAIN_CONF)
     else:
-        code = regdomain[-3:-1]
-        with open(config.REGDOMAIN_CONF, 'w') as file:
-            file.write(f'REGDOMAIN={code}\n')
+        with open(config.REGDOMAIN_CONF, mode='w', encoding='utf-8') as file:
+            file.write(f'REGDOMAIN={regdomain[-3:-1]}\n')
     os_tools.execute(config.SETREGDOMAIN)
