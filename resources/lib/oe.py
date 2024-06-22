@@ -307,7 +307,7 @@ def get_service_option(service, option, default=None):
         conf_file_name = f'{config.CONFIG_CACHE}/services/{service}.conf'
     if os.path.exists(f'{config.CONFIG_CACHE}/services/{service}.disabled'):
         conf_file_name = f'{config.CONFIG_CACHE}/services/{service}.disabled'
-    if os.path.exists(conf_file_name):
+    if conf_file_name:
         with open(conf_file_name, 'r') as conf_file:
             for line in conf_file:
                 if option in line and '=' in line:
@@ -346,8 +346,7 @@ def set_service(service, options, state):
         if os.path.exists(cfo):
             os.rename(cfo, cfn)
         else:
-            with open(cfn, 'w') as cf:
-                pass
+            open(cfn, mode='w', encoding='utf-8').close()
     if not __oe__.is_service:
         if service in defaults._services:
             for svc in defaults._services[service]:
@@ -640,7 +639,7 @@ def load_modules():
     dict_names = {}
     dictModules = {}
     for file_name in sorted(os.listdir(f'{__cwd__}/resources/lib/modules')):
-        if not file_name.startswith('__') and (file_name.endswith('.py') or file_name.endswith('.pyc')):
+        if not file_name.startswith('__') and file_name.endswith(('.py', '.pyc')):
             (name, ext) = file_name.split('.')
             dict_names[name] = None
     for module_name in dict_names:
