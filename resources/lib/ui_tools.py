@@ -12,6 +12,12 @@ ADDON_ICON = ADDON.getAddonInfo('icon')
 ADDON_NAME = ADDON.getAddonInfo('name')
 
 
+# TODO
+# message splitting
+# ok dialog
+# progress dialog
+
+
 @log.log_function()
 def notification(message, heading=ADDON_NAME, icon=ADDON_ICON, time=5000):
     xbmcgui.Dialog().notification(heading, message, icon, time)
