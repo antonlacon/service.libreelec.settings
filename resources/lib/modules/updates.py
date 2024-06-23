@@ -21,6 +21,7 @@ import log
 import modules
 import oe
 import os_tools
+import ui_tools
 
 if os.path.isfile('/usr/bin/update-system'):
     update_system = os_tools.import_from_file('update_system', '/usr/bin/update-system')
@@ -617,7 +618,7 @@ class updates(modules.Module):
                     self.update_checksum = update_checksum
                 # On screen notification
                 if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
-                    oe.notify(oe._(32363), oe._(32364))
+                    ui_tools.notification(oe._(32364))
                 # Automatic update if enabled and not a major release
                 if not update_major and (self.struct['update']['settings']['AutoUpdate']['value'] == '1' and force is False):
                     self.update_in_progress = True
@@ -629,7 +630,7 @@ class updates(modules.Module):
                 self.update_file = self.UPDATE_DOWNLOAD_URL % (update_json['data']['folder'], update_json['data']['update'])
                 if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
                     # update available message
-                    oe.notify(oe._(32363), oe._(32364))
+                    ui_tools.notification(oe._(32364))
                 if self.struct['update']['settings']['AutoUpdate']['value'] == '1' and force is False:
                     self.update_in_progress = True
                     self.do_autoupdate(True)
@@ -644,7 +645,7 @@ class updates(modules.Module):
                 self.update_file = self.update_file.split('/')[-1]
                 if self.struct['update']['settings']['UpdateNotify']['value'] == '1':
                     # update download complete message
-                    oe.notify(oe._(32363), oe._(32366))
+                    ui_tools.notification(oe._(32366))
                 shutil.move(f'{self.LOCAL_UPDATE_TEMP}/update_file', self.LOCAL_UPDATE_DIR + self.update_file)
                 os.sync()
                 if silent is False:
@@ -757,7 +758,7 @@ class updateThread(threading.Thread):
                 # TODO this should check if update notifications are enabled too?
                 if not xbmc.Player().isPlaying():
                     # update available message
-                    oe.notify(oe._(32363), oe._(32364))
+                    ui_tools.notification(oe._(32364))
                 self.wait_evt.wait(3600)
             self.wait_evt.clear()
         log.log('updateThread Stopped', log.INFO)

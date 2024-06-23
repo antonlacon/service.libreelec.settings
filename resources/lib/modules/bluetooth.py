@@ -18,6 +18,8 @@ import log
 import modules
 import oe
 import oeWindows
+import ui_tools
+
 
 BT_DEVICES_LIST_REFRESH_INTERVAL_SECONDS = 5
 
@@ -259,7 +261,7 @@ class bluetooth(modules.Module):
     @log.log_function()
     def dbus_error_handler(self, error):
         log.log(f'error message: {repr(error.message)}', log.DEBUG)
-        oe.notify('Bluetooth error', error.message.split('.')[0], 'bt')
+        ui_tools.notification(error.message.split('.')[0], 'Bluetooth error', 'bt')
         if hasattr(self, 'pinkey_window'):
             self.close_pinkey_window()
 
