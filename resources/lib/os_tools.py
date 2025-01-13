@@ -48,9 +48,7 @@ def read_file_setting(file, default=None):
 
 def read_shell_settings(file, defaults=None):
     '''Parse settings from text file, placing each value into a dictionary'''
-    if defaults is None:
-        defaults = {}
-    settings = defaults
+    settings = defaults if defaults else {}
     if os.path.isfile(file):
         with open(file, mode='r', encoding='utf-8') as data:
             for line in data:
