@@ -165,7 +165,7 @@ REGDOMAIN_LIST = [REGDOMAIN_DEFAULT] + [
     "Tanzania (TZ)",
     "Thailand (TH)",
     "Togo (TG)",
-    "Trinidan and Tobago (TT)",
+    "Trinidad and Tobago (TT)",
     "Tunisia (TN)",
     "Turkey (TR)",
     "Turks and Caicos Islands (TC)",
