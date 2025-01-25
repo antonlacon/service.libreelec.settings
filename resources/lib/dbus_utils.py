@@ -128,7 +128,12 @@ def run_method(bus_name, path, interface, method_name, *args, **kwargs):
     return future.result()
 
 
-LOOP = asyncio.get_event_loop()
+try:
+    LOOP = asyncio.get_running_loop()
+except RuntimeError:
+    LOOP = asyncio.new_event_loop()
+asyncio.set_event_loop(LOOP)
+
 BUS = ravel.system_bus()
 BUS.attach_asyncio(LOOP)
 LOOP_THREAD = LoopThread(LOOP)
