@@ -4,6 +4,7 @@
 '''This module holds support functions for interacting with timezones.
 '''
 
+import os
 
 import config
 import os_tools
@@ -37,4 +38,8 @@ def set_timezone(timezone):
     if current_timezone != timezone or not os.path.isfile(config.TIMEZONE):
         with open(config.TIMEZONE, mode='w', encoding='utf-8') as out_file:
             out_file.write(f'TIMEZONE={timezone}\n')
-        os_tools.execute('systemctl restart tz-data')
+        if os.path.isfile(config.TIMEZONE):
+            os_tools.execute('systemctl restart tz-data')
+        else:
+            log.log(f'Failed to write: {config.TIMEZONE}', log.ERROR)
+            log.log(f'Desired timezone was: {timezone}', log.ERROR)
