@@ -7,6 +7,7 @@
 import os
 
 import config
+import log
 import os_tools
 
 
