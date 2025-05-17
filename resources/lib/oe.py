@@ -765,14 +765,14 @@ def get_os_release():
             version = os_release_info['VERSION']
         if 'VERSION_ID' in os_release_info:
             version_id = os_release_info['VERSION_ID']
-        if 'LIBREELEC_ARCH' in os_release_info:
-            architecture = os_release_info['LIBREELEC_ARCH']
-        if 'LIBREELEC_BUILD' in os_release_info:
-            build = os_release_info['LIBREELEC_BUILD']
-        if 'LIBREELEC_PROJECT' in os_release_info:
-            project = os_release_info['LIBREELEC_PROJECT']
-        if 'LIBREELEC_DEVICE' in os_release_info:
-            device = os_release_info['LIBREELEC_DEVICE']
+        if 'DISTRO_ARCH' in os_release_info:
+            architecture = os_release_info['DISTRO_ARCH']
+        if 'DISTRO_BUILD' in os_release_info:
+            build = os_release_info['DISTRO_BUILD']
+        if 'DISTRO_PROJECT' in os_release_info:
+            project = os_release_info['DISTRO_PROJECT']
+        if 'DISTRO_DEVICE' in os_release_info:
+            device = os_release_info['DISTRO_DEVICE']
         if 'BUILDER_NAME' in os_release_info:
             builder_name = os_release_info['BUILDER_NAME']
         if 'BUILDER_VERSION' in os_release_info:
