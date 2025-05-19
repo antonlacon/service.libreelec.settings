@@ -410,8 +410,12 @@ class system(modules.Module):
     @log.log_function()
     def set_timezone(self, listItem=None):
         timezones = timezone.list_timezones()
-        if self.struct['ident']['settings']['timezone']['value'] in timezones:
-            menu_position = timezones.index(self.struct['ident']['settings']['timezone']['value'])
+        guessed_timezone = timezone.guess_timezone()
+        current_timezone = self.struct['ident']['settings']['timezone']['value']
+        if current_timezone != 'UTC' and current_timezone in timezones:
+            menu_position = timezones.index(current_timezone)
+        elif guessed_timezone in timezones:
+            menu_position = timezones.index(guessed_timezone)
         else:
             menu_position = 0
         xbmcDialog = xbmcgui.Dialog()
