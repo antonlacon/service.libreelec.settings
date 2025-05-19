@@ -416,8 +416,10 @@ class system(modules.Module):
             menu_position = 0
         xbmcDialog = xbmcgui.Dialog()
         timezone_select = xbmcDialog.select(heading=oe._(32420), list=timezones, preselect=menu_position)
+        log.log(f'timezone_select: {timezone_select}', log.DEBUG)
         if timezone_select > -1:
             listItem = timezones[timezone_select]
+            log.log(f'listItem: {listItem}', log.DEBUG)
             self.struct['ident']['settings']['timezone']['value'] = listItem
             self.struct['ident']['settings']['timezone']['name'] = f"{oe._(32420)} ({listItem})"
             log.log(f'Setting timezone to: {timezone}', log.DEBUG)
