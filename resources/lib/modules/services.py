@@ -12,6 +12,7 @@ import xbmcgui
 import log
 import modules
 import oe
+import ui_tools
 
 
 xbmcDialog = xbmcgui.Dialog()
@@ -509,7 +510,8 @@ class services(modules.Module):
         with open(self.KERNEL_CMD, 'r') as cmd_file:
             cmd_args = cmd_file.read().split(' ')
         if 'ssh' in cmd_args:
-            oe.notify('ssh', 'ssh enabled as boot parameter. can not disable')
+            # FIXME localization
+            ui_tools.notification('ssh enabled as boot parameter. Cannot disable.')
         self.initialize_ssh()
         self.load_values()
         if self.struct['ssh']['settings']['ssh_autostart']['value'] == '1':
