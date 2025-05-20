@@ -21,6 +21,9 @@ def read_shell_setting(file, default=None):
     if os.path.isfile(file):
         with open(file, mode='r', encoding='utf-8') as data:
             setting = data.readline().strip()
+            # ignore comments
+            if setting.startswith('#'):
+                setting = default if default else ''
     else:
         log.log(f'File not found: {file}', log.DEBUG)
     return setting
