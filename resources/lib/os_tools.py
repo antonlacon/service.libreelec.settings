@@ -41,7 +41,7 @@ def read_shell_settings(file, defaults=None):
                     name, value = line.split('=', 1)
                     # remove quotes
                     if value:
-                        value = value.removeprefix('"').removesuffix('"')
+                        value = value.removeprefix('"').removesuffix('"').removeprefix("'").removesuffix("'")
                     settings[name] = value
     else:
         log.log(f'File not found: {file}', log.DEBUG)
