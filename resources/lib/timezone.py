@@ -10,6 +10,7 @@ from urllib.request import urlopen
 import config
 import log
 import os_tools
+import time
 
 
 def get_timezone():
@@ -58,6 +59,7 @@ def set_timezone(timezone):
             out_file.write(f'TIMEZONE={timezone}\n')
         if os.path.isfile(config.TIMEZONE):
             os_tools.execute('systemctl restart tz-data')
+            time.tzset()
         else:
             log.log(f'Failed to write: {config.TIMEZONE}', log.ERROR)
             log.log(f'Desired timezone was: {timezone}', log.ERROR)
