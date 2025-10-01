@@ -7,14 +7,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LibreELEC Settings Add-on\n"
-"PO-Revision-Date: 2021-08-09 10:14+0000\n"
-"Last-Translator: Transifex Bot <>\n"
-"Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/libreelec/service_libreelec_settings/language/uk_UA/)\n"
-"Language: uk_UA\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+"PO-Revision-Date: 2025-09-20 11:29+0000\n"
+"Last-Translator: Pavlo Marianov <acid@jack.kyiv.ua>\n"
+"Language-Team: Ukrainian <https://kodi.weblate.cloud/projects/kodi-add-ons-services/service-libreelec-settings/uk_ua/>\n"
+"Language: uk_ua\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Generator: Weblate 5.13.3\n"
 
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
@@ -34,7 +36,7 @@ msgstr "Тип"
 
 msgctxt "#604"
 msgid "State"
-msgstr ""
+msgstr "Стан"
 
 msgctxt "#605"
 msgid "Address"
@@ -42,7 +44,7 @@ msgstr "Адреса"
 
 msgctxt "#606"
 msgid "Distribution: "
-msgstr ""
+msgstr "Дистрибутив: "
 
 msgctxt "#607"
 msgid "Version: "
@@ -50,191 +52,195 @@ msgstr "Версія: "
 
 msgctxt "#608"
 msgid "Architecture: "
-msgstr "Архітектура:"
+msgstr "Архітектура: "
 
 msgctxt "#609"
 msgid "LibreELEC is created by a global team of Linux and Kodi enthusiasts who contribute time and effort to manage the project, write code, and provide support. We have fun making it. We hope you have fun using it!"
-msgstr ""
+msgstr "LibreELEC створено командою ентузіастів та любителів Linux і Kodi з усього світу, котрі витрачають свій час та зусилля на керування проєктом, написання коду і надання підтримки. Нам подобається це робити. Сподіваємось, вам також буде весело!"
 
 msgctxt "#610"
 msgid "[B]Support[/B] is provided via our forum:[CR]https://forum.libreelec.tv[CR][CR][B]Documentation[/B] can be read in our wiki:[CR]https://libreelec.wiki[CR][CR][B]Code[/B] can be found on GitHub:[CR]https://github.com/LibreELEC[CR][CR][B]Donations[/B] towards project expenses are accepted via OpenCollective:[CR]https://opencollective.com/libreelec/donate"
-msgstr ""
+msgstr "[B]Підтримка[/B] надається через наш форум:[CR]https://forum.libreelec.tv[CR][CR][B]Документацію[/B] доступна на нашій вікі-сторінці:[CR]https://libreelec.wiki[CR][CR][B]Код[/B] можна знайти на GitHub:[CR]https://github.com/LibreELEC[CR][CR][B]Пожертви[/B] на підтримку проєкта приймаються через OpenCollective:[CR]https://opencollective.com/libreelec/donate"
 
 msgctxt "#700"
 msgid "Configure a hostname, keyboard type, perform a reset, update, or backups and restores"
-msgstr ""
+msgstr "Налаштування імені хоста, типу клавіатури, виконання скидання, оновлення, резервного копіювання та відновлення з резервної копії"
 
 msgctxt "#701"
 msgid "Configure network startup options, NTP and VPNs"
-msgstr ""
+msgstr "Налаштування запуску мережі, NTP та VPN"
 
 msgctxt "#702"
 msgid "Manage the Ethernet, Wireless and VPN connections available to the system"
-msgstr ""
+msgstr "Керування дротовими, бездротовими та VPN-з'єднаннями, що доступні в системі"
 
 msgctxt "#703"
 msgid "Configure system services like Samba, SSH, Cron, Avahi and Syslog"
-msgstr ""
+msgstr "Налаштування системних служб, таких як Samba, SSH, Cron, Avahi та Syslog"
 
 msgctxt "#704"
 msgid "Configure and pair Bluetooth devices"
-msgstr ""
+msgstr "Налаштування та утворення пар з Bluetooth-пристроями"
 
 msgctxt "#705"
 msgid "Useful information like version and architecture details, support and documentation links, and how to donate and support the project."
-msgstr ""
+msgstr "Корисна інформація на кшталт версії та архітектури, посилання на підтримку і документацію, а також як можна зробити пожертву і підтримати проект."
 
 msgctxt "#707"
 msgid "Configure updates"
-msgstr ""
+msgstr "Налаштування оновлень"
 
 msgctxt "#709"
 msgid "Select the timezone for this device."
-msgstr ""
+msgstr "Виберіть часовий пояс для цього пристрою."
 
 msgctxt "#710"
 msgid "Configure the Hostname of your @DISTRONAME@ system. This will be used for the HTPC \\\\hostname in Windows and SMB server name in the Mac OS Finder"
-msgstr ""
+msgstr "Вкажіть ім'я хоста для своєї системи @DISTRONAME@. Воно буде використовуватись в якості імені HTPC \\\\hostname в Windows та SMB-сервера в Mac OS Finder"
 
 msgctxt "#711"
 msgid "Configure the 1st keyboard software layout"
-msgstr ""
+msgstr "Налаштування першої розкладки екранної клавіатури"
 
 msgctxt "#712"
 msgid "Configure the 2nd keyboard software layout"
-msgstr ""
+msgstr "Налаштування другої розкладки екранної клавіатури"
 
 msgctxt "#713"
 msgid "Configure the physical keyboard type"
-msgstr ""
+msgstr "Налаштування типу фізичної клавіатури"
 
 msgctxt "#714"
 msgid "@DISTRONAME@ can be configured for automatic or manual updates. Automatic updates are available on stable releases and stable release candidates. Automatic update self-disables on beta and development builds"
-msgstr ""
+msgstr "@DISTRONAME@ можна налаштувати на автоматичне або ручне отримання оновлень. Автоматичні оновлення доступні для стабільних випусків та стабільних реліз-кандидатів. Автоматичне оновлення вимикається для бета-версій та розробницьких збірок"
 
 msgctxt "#715"
 msgid "Set to ON and an on-screen notification will be displayed when a new update is available"
-msgstr ""
+msgstr "Якщо увімкнути, на екрані будуть з'являтись повідомлення про доступність нових оновлень"
 
 msgctxt "#718"
 msgid "Send boot config files from /flash, kodi.log, kernel log and Samba configs to http://ix.io, and display the short URL"
-msgstr ""
+msgstr "Надішліть конфігураційні файли завантаження з /flash, журнали kodi.log, kernel.log та конфігураційні файли Samba на http://ix.io, і надайте нам коротку URL-адресу"
 
 msgctxt "#719"
 msgid "Send boot config files from /flash, kodi_crash.log, kernel log and Samba configs to http://ix.io, and display the short URL"
-msgstr ""
+msgstr "Надішліть конфігураційні файли завантаження з /flash, журнали kodi_crash.log, kernel.log та конфігураційні файли Samba на http://ix.io, і надайте нам коротку URL-адресу"
 
 msgctxt "#720"
 msgid "Set to ON to enable the Bluetooth service"
-msgstr ""
+msgstr "Вмикає службу Bluetooth"
 
 msgctxt "#722"
 msgid "Create a tar archive containing all @DISTRONAME@ and Kodi configuration settings, databases and thumbnail content. Backup files will be stored in /storage/backup/"
-msgstr ""
+msgstr "Створення TAR-архіву, що містить всі параметри налаштувань @DISTRONAME@ та Kodi, бази даних та ескізи. Файли резервних копій буде збережено в /storage/backup/"
 
 msgctxt "#723"
 msgid "Restore a tar archive backup previously created using the backup option above"
-msgstr ""
+msgstr "Відновлення з TAR-архіву резервної копії, створеної функцією резервного копіювання вище"
 
 msgctxt "#724"
 msgid ""
 "[COLOR FF00FF00]SOFT RESET[/COLOR]\n"
 "Permanently reset @DISTRONAME@ configuration to defaults (resets also Kodi to default including your library. your media - music/videos/etc are not touched)"
 msgstr ""
+"[COLOR FF00FF00]М'ЯКЕ СКИДАННЯ[/COLOR]\n"
+"Відновлення стандартних налаштувань @DISTRONAME@ (також скидає налаштування Kodi на стандартні, включно з вашою медіатекою. Медіафайли — музика, відео, тощо — залишаться без змін)"
 
 msgctxt "#725"
 msgid ""
 "[COLOR FFFF0000]HARD RESET[/COLOR]\n"
 "Permanently reset @DISTRONAME@ and Kodi configuration to defaults (everything in your storage partition will be deleted)"
 msgstr ""
+"[COLOR FFFF0000]ЖОРСТКЕ СКИДАННЯ[/COLOR]\n"
+"Відновлення стандартних налаштувань @DISTRONAME@ та Kodi (весь вміст розділу STORAGE сховища буде видалений)"
 
 msgctxt "#726"
 msgid "Enable or disable support for Wireless (WLAN) networks"
-msgstr ""
+msgstr "Вмикає та вимикає підтримку бездротових мереж (WLAN)"
 
 msgctxt "#727"
 msgid "Enable a 'tethered' Wireless Access Point. This requires your wireless card (and driver) to support bridging and access point mode. Not all cards are capable."
-msgstr ""
+msgstr "Вмикає бездротову точку доступу. Для цього бездротова карта (і драйвер) мають підтримувати режим мосту і точки доступу. Не всі карти мають таку підтримку."
 
 msgctxt "#728"
 msgid "Configure the Access Point SSID"
-msgstr ""
+msgstr "Налаштування SSID точки доступу"
 
 msgctxt "#729"
 msgid "Configure the Access Point Passphrase"
-msgstr ""
+msgstr "Налаштування паролю точки доступу"
 
 msgctxt "#730"
 msgid "Enable or disable support for Wired (Ethernet) networks"
-msgstr ""
+msgstr "Вмикає та вимикає підтримку дротових мереж (Ethernet)"
 
 msgctxt "#732"
 msgid "Configure the 1st time (NTP) server"
-msgstr ""
+msgstr "Налаштування першого сервера часу (NTP)"
 
 msgctxt "#733"
 msgid "Configure the 2nd time (NTP) server"
-msgstr ""
+msgstr "Налаштування другого сервера часу (NTP)"
 
 msgctxt "#734"
 msgid "Configure the 3rd time (NTP) server"
-msgstr ""
+msgstr "Налаштування третього сервера часу (NTP)"
 
 msgctxt "#736"
 msgid "Set to ON to delay Kodi startup until the network is available. Use this if the OS is booting into Kodi before the network is up and central MySQL databases are accessible."
-msgstr ""
+msgstr "Увімкніть, щоб затримати запуск Kodi, поки не буде встановлене з'єднання з мережею. Це корисно, коли ОС завантажується і запускає Kodi до встановлення з'єднання з мережею і підключення до основної бази даних MySQL."
 
 msgctxt "#737"
 msgid "Time in seconds to wait for an established network connection."
-msgstr ""
+msgstr "Час очікування (в секундах) на з'єднання з мережею."
 
 msgctxt "#738"
 msgid "Set to ON to enable the embedded Samba (SMB) filesharing service"
-msgstr ""
+msgstr "Вмикає вбудовану службу доступу до файлів Samba (SMB)"
 
 msgctxt "#739"
 msgid "Set to ON to require username/password access to local Samba fileshares"
-msgstr ""
+msgstr "Увімкніть, щоб вимагати ім'я користувача та пароль для доступу до локальних ресурсів Samba"
 
 msgctxt "#740"
 msgid "Set the username for Samba sharing"
-msgstr ""
+msgstr "Вкажіть ім'я користувача для ресурсу Samba"
 
 msgctxt "#741"
 msgid "Set the password for Samba sharing"
-msgstr ""
+msgstr "Вкажіть пароль для ресурсу Samba"
 
 msgctxt "#742"
 msgid "Set to ON to enable the embedded SSH server. The SSH console can be accessed with username 'root' and password '@ROOT_PASSWORD@'."
-msgstr ""
+msgstr "Вмикає вбудований SSH-сервер. Ім'я користувача та пароль для SSH: 'root' і '@ROOT_PASSWORD@'."
 
 msgctxt "#743"
 msgid "Set to ON if you have copied private SSH keys to your HTPC and would like to improve security by disabling SSH username and password authentication."
-msgstr ""
+msgstr "Увімкніть, якщо ви скопіювали закритий ключ SSH на свій HTPC і хочете підвищити рівень безпеки, вимкнувши доступ за ім'ям користувача і паролем."
 
 msgctxt "#744"
 msgid "Set to ON to enable the Avahi (Zeroconf/Bonjour) network discovery service"
-msgstr ""
+msgstr "Вмикає службу мережевого виявлення Avahi (Zeroconf/Bonjour)"
 
 msgctxt "#745"
 msgid "Set to ON to enable the cron daemon"
-msgstr ""
+msgstr "Вмикає службу планувальника cron"
 
 msgctxt "#746"
 msgid "Set the password for SSH"
-msgstr ""
+msgstr "Вкажіть пароль для SSH"
 
 msgctxt "#747"
 msgid "Enable a PIN for @DISTRONAME@ Settings access"
-msgstr ""
+msgstr "Увімкнути PIN-код для доступу до налаштувань @DISTRONAME@"
 
 msgctxt "#748"
 msgid "Change the PIN Lock for @DISTRONAME@ Settings access"
-msgstr ""
+msgstr "Змінити PIN-код для доступу до налаштувань @DISTRONAME@"
 
 msgctxt "#749"
 msgid "Overrride the Wireless Regulatory Domain so radio properties (channels and transmit power) comply with local laws or match the country configuration of your router."
-msgstr ""
+msgstr "Перевизначити радіочастотний регіон, щоб характеристики (канали та потужність передачі) відповідали місцевим законам або налаштуванням країні у вашому маршрутизаторі."
 
 msgctxt "#750"
 msgid "750"
@@ -242,63 +248,63 @@ msgstr "750"
 
 msgctxt "#751"
 msgid "With OBEX filetransfer you can send files, for example movies or pictures over bluetooth to @DISTRONAME@."
-msgstr ""
+msgstr "За допомогою технології OBEX ви можете надсилати файли, наприклад фільми або фотографії, через bluetooth до @DISTRONAME@."
 
 msgctxt "#752"
 msgid "Here you can set the folder location where OBEX file transfer should store incoming files"
-msgstr ""
+msgstr "Тут можна вказати розташування теки, куди будуть зберігатись файли, отримані через OBEX"
 
 msgctxt "#753"
 msgid "Configure the 1st keyboard software Variant"
-msgstr ""
+msgstr "Налаштування першої екранної клавіатури"
 
 msgctxt "#754"
 msgid "Configure the 2nd keyboard software Variant"
-msgstr ""
+msgstr "Налаштування другої екранної клавіатури"
 
 msgctxt "#755"
 msgid "Auto share external drives / partitions"
-msgstr ""
+msgstr "Автоматично відкривати доступ до зовнішніх дисків та розділів"
 
 msgctxt "#756"
 msgid "Disable older SMB protocols by specifying the minimum supported protocol."
-msgstr ""
+msgstr "Вимкнути застарілі SMB-протоколи, вказавши мінімальний підтримуваний протокол."
 
 msgctxt "#757"
 msgid "Disable more recent SMB protocols for backward compatability with legacy clients."
-msgstr ""
+msgstr "Вимкнути більш пізні SMB-протоколи для зворотної сумісності зі старими клієнтами."
 
 msgctxt "#758"
 msgid "NetBIOS group to which the server belongs. Default is WORKGROUP."
-msgstr ""
+msgstr "Група NetBIOS, до якої належить сервер. За замовчуванням — WORKGROUP."
 
 msgctxt "#760"
 msgid "Select an update channel"
-msgstr ""
+msgstr "Вибір каналу оновлення"
 
 msgctxt "#761"
 msgid "Enable to allow entering a custom update url"
-msgstr ""
+msgstr "Увімкніть, щоб можна було ввести власну URL-адресу для оновлення"
 
 msgctxt "#762"
 msgid "Enter a custom update url (url should be the root of the update files)"
-msgstr ""
+msgstr "Введіть власну URL-адресу для оновлення (має вказувати на кореневу теку з файлами оновлень)"
 
 msgctxt "#770"
 msgid "Select an available version"
-msgstr ""
+msgstr "Виберіть версію з доступних"
 
 msgctxt "#771"
 msgid "The firewall blocks unwanted network traffic. Home (default) allows traffic from private network ranges (192.168.x.x, 172.16.x.x and 10.x.x.x) only. Public blocks all traffic from all networks. Custom uses rules in /storage/.config/iptables. Off disables the firewall."
-msgstr ""
+msgstr "Брандмауер блокує небажаний мережевий трафік. \"Вдома\" (за замовчуванням) дозволяє трафік з тільки приватних мереж (192.168.x.x, 172.16.x.x та 10.x.x.x) only. \"Публічний\" блокує трафік з усіх мереж. \"Власний\" використовує правила з файлу /storage/.config/iptables. \"Вимкнено\" вимикає брандмауер."
 
 msgctxt "#772"
 msgid "Checking for a new version will submit the installed Distribution, Project, CPU Arch and Version to the update server. This data is also used to report basic statistics for the project. To continue checking for updates while opting-out of stats reporting, disable this option."
-msgstr ""
+msgstr "Під час перевірки версії на сервер оновлень буде надіслано наступні відомості: встановлений дистрибутив, проект, архітектура процесора та версія."
 
 msgctxt "#773"
 msgid "Set the idle timeout (in minutes) before devices will be disconnected (defaults to 0 for no timeout). Applies to devices where \"Enable Standby\" has been activated in the LibreELEC device connection context menu."
-msgstr ""
+msgstr "Вкажіть час очікування (в хвилинах), після якого неактивні пристрої будуть відключені (стандартне значення — 0, без відключення). Застосовується до пристроїв, для яких у контекстному меню з'єднання було обрано \"Увімкнути режим очікування\"."
 
 msgctxt "#32001"
 msgid "Services"
@@ -322,79 +328,79 @@ msgstr "Клавіатура"
 
 msgctxt "#32010"
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Розкладка клавіатури"
 
 msgctxt "#32012"
 msgid "Select Action"
-msgstr ""
+msgstr "Виберіть дію"
 
 msgctxt "#32013"
 msgid "OS Updates"
-msgstr ""
+msgstr "Оновлення ОС"
 
 msgctxt "#32014"
 msgid "Automatic Updates"
-msgstr ""
+msgstr "Автоматичне оновлення"
 
 msgctxt "#32015"
 msgid "Update Channel"
-msgstr ""
+msgstr "Канал оновлень"
 
 msgctxt "#32016"
 msgid "Show Custom Channels"
-msgstr ""
+msgstr "Показати користувацькі канали"
 
 msgctxt "#32017"
 msgid "  - Custom Channel 1"
-msgstr ""
+msgstr "  - користувацький канал 1"
 
 msgctxt "#32018"
 msgid "  - Custom Channel 2"
-msgstr ""
+msgstr "  - користувацький канал 2"
 
 msgctxt "#32019"
 msgid "  - Custom Channel 3"
-msgstr ""
+msgstr "  - користувацький канал 3"
 
 msgctxt "#32020"
 msgid "Available Versions"
-msgstr ""
+msgstr "Доступні версії"
 
 msgctxt "#32021"
 msgid "Submit Statistics"
-msgstr ""
+msgstr "Надсилати статистику"
 
 msgctxt "#32022"
 msgid "Firmware Updates"
-msgstr ""
+msgstr "Оновлення мікропрограми"
 
 msgctxt "#32023"
 msgid "Updating will occur once the system is rebooted."
-msgstr ""
+msgstr "Оновлення відбудеться після перезавантаження системи."
 
 msgctxt "#32024"
 msgid "Bootloader EEPROM"
-msgstr ""
+msgstr "Завантажувач EEPROM"
 
 msgctxt "#32025"
 msgid "Update the Raspberry Pi Bootloader EEPROM to the latest version. This option is automatically disabled after rebooting. Reboot the system to apply the update."
-msgstr ""
+msgstr "Оновлення EEPROM завантажувача Raspberry Pi до останньої версії. Цей параметр буде автоматично вимкнено після перезавантаження. Перезавантажте систему, щоб застосувати оновлення."
 
 msgctxt "#32026"
 msgid "VIA USB3 Firmware"
-msgstr ""
+msgstr "Мікропрограма VIA USB3"
 
 msgctxt "#32027"
 msgid "Update the Raspberry Pi VIA USB3 firmware to the latest version. This option is automatically disabled after rebooting. Reboot the system to apply the update."
-msgstr ""
+msgstr "Оновлення мікропрограми VIA USB3 Raspberry Pi до останньої версії. Цей параметр буде автоматично вимкнено після перезавантаження. Перезавантажте систему, щоб застосувати оновлення."
 
 msgctxt "#32028"
 msgid "update from %s to %s"
-msgstr ""
+msgstr "оновлення з %s до %s"
 
 msgctxt "#32029"
 msgid "up to date: %s"
-msgstr ""
+msgstr "актуальний стан: %s"
 
 msgctxt "#32100"
 msgid "Connections"
@@ -406,15 +412,15 @@ msgstr "Мережа"
 
 msgctxt "#32102"
 msgid "Wireless Networks"
-msgstr ""
+msgstr "Бездротові мережі"
 
 msgctxt "#32103"
 msgid "Wired Networks"
-msgstr ""
+msgstr "Дротові мережі"
 
 msgctxt "#32105"
 msgid "Active"
-msgstr ""
+msgstr "Увімкнено"
 
 msgctxt "#32106"
 msgid "Username"
@@ -422,15 +428,15 @@ msgstr "Ім’я користувача"
 
 msgctxt "#32107"
 msgid "Passphrase"
-msgstr ""
+msgstr "Пароль"
 
 msgctxt "#32108"
 msgid "Enable 'tethered' Wireless Access Point"
-msgstr ""
+msgstr "Увімкнути бездротову точку доступу"
 
 msgctxt "#32109"
 msgid "Connect Automatically"
-msgstr ""
+msgstr "З'єднуватись автоматично"
 
 msgctxt "#32110"
 msgid "Connection"
@@ -446,7 +452,7 @@ msgstr "IPv6"
 
 msgctxt "#32113"
 msgid "IP Address Method"
-msgstr "Метод IP-адреси"
+msgstr "Спосіб отримання IP-адреси"
 
 msgctxt "#32114"
 msgid "IP Address"
@@ -458,63 +464,63 @@ msgstr "Маска підмережі"
 
 msgctxt "#32116"
 msgid "Default Gateway"
-msgstr ""
+msgstr "Шлюз за замовчуванням"
 
 msgctxt "#32117"
 msgid "Prefix Length"
-msgstr ""
+msgstr "Довжина префіксу"
 
 msgctxt "#32118"
 msgid "Privacy"
-msgstr ""
+msgstr "Конфіденційність"
 
 msgctxt "#32119"
 msgid "DNS Servers"
-msgstr ""
+msgstr "Сервери DNS"
 
 msgctxt "#32120"
 msgid "Nameserver #1"
-msgstr ""
+msgstr "Сервер імен №1"
 
 msgctxt "#32121"
 msgid "Nameserver #2"
-msgstr ""
+msgstr "Сервер імен №2"
 
 msgctxt "#32122"
 msgid "Nameserver #3"
-msgstr ""
+msgstr "Сервер імен №3"
 
 msgctxt "#32123"
 msgid "NTP Servers"
-msgstr ""
+msgstr "Сервери NTP"
 
 msgctxt "#32124"
 msgid "Timeserver #1"
-msgstr ""
+msgstr "Сервер часу №1"
 
 msgctxt "#32125"
 msgid "Timeserver #2"
-msgstr ""
+msgstr "Сервер часу №2"
 
 msgctxt "#32126"
 msgid "Timeserver #3"
-msgstr ""
+msgstr "Сервер часу №3"
 
 msgctxt "#32127"
 msgid "DNS Domains"
-msgstr ""
+msgstr "Домени DNS"
 
 msgctxt "#32128"
 msgid "Domain #1"
-msgstr ""
+msgstr "Домен №1"
 
 msgctxt "#32129"
 msgid "Domain #2"
-msgstr ""
+msgstr "Домен №2"
 
 msgctxt "#32130"
 msgid "Domain #3"
-msgstr ""
+msgstr "Домен №3"
 
 msgctxt "#32140"
 msgid "Save"
@@ -522,103 +528,103 @@ msgstr "Зберегти"
 
 msgctxt "#32141"
 msgid "Delete"
-msgstr "Вилучити"
+msgstr "Видалити"
 
 msgctxt "#32142"
 msgid "Refresh"
-msgstr ""
+msgstr "Оновити"
 
 msgctxt "#32143"
 msgid "Disconnect"
-msgstr ""
+msgstr "Від'єднатись"
 
 msgctxt "#32144"
 msgid "Connect"
-msgstr ""
+msgstr "З'єднатись"
 
 msgctxt "#32145"
 msgid "Pair"
-msgstr ""
+msgstr "Створити пару"
 
 msgctxt "#32146"
 msgid "Hidden Network Name"
-msgstr ""
+msgstr "Назва прихованої мережі"
 
 msgctxt "#32147"
 msgid "Wireless Network Passphrase"
-msgstr ""
+msgstr "Пароль бездротової мережі"
 
 msgctxt "#32148"
 msgid "Wireless Network Username"
-msgstr ""
+msgstr "Ім'я користувача бездротової мережі"
 
 msgctxt "#32150"
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
 
 msgctxt "#32180"
 msgid "Would you like to update @DISTRONAME@ now?"
-msgstr ""
+msgstr "Оновити @DISTRONAME@ зараз?"
 
 msgctxt "#32181"
 msgid "Filename"
-msgstr ""
+msgstr "Назва файлу"
 
 msgctxt "#32182"
 msgid "Download speed"
-msgstr ""
+msgstr "Швидкість завантаження"
 
 msgctxt "#32183"
 msgid "Time remaining"
-msgstr ""
+msgstr "Залишилось часу"
 
 msgctxt "#32184"
 msgid "Extract file"
-msgstr ""
+msgstr "Розпакувати файл"
 
 msgctxt "#32185"
 msgid "Extract speed"
-msgstr ""
+msgstr "Швидкість розпакування"
 
 msgctxt "#32186"
 msgid "Initialize Archive File"
-msgstr ""
+msgstr "Ініціалізація файлу архіву"
 
 msgctxt "#32187"
 msgid "New Version"
-msgstr ""
+msgstr "Нова версія"
 
 msgctxt "#32188"
 msgid "Current Version"
-msgstr ""
+msgstr "Поточна версія"
 
 msgctxt "#32189"
 msgid "OS Configuration"
-msgstr ""
+msgstr "Конфігурація ОС"
 
 msgctxt "#32190"
 msgid "System Name"
-msgstr ""
+msgstr "Назва системи"
 
 msgctxt "#32191"
 msgid "Invalid URL"
-msgstr ""
+msgstr "Недійсна URL-адреса"
 
 msgctxt "#32192"
 msgid "PIN lock"
-msgstr ""
+msgstr "PIN-код"
 
 msgctxt "#32193"
 msgid "Enable @DISTRONAME@ Settings PIN Lock"
-msgstr ""
+msgstr "Увімкнути блокування налаштувань @DISTRONAME@ PIN-кодом"
 
 msgctxt "#32194"
 msgid "Change @DISTRONAME@ Settings PIN Lock"
-msgstr ""
+msgstr "Змінити блокування налаштувань @DISTRONAME@ PIN-кодом"
 
 msgctxt "#32196"
 msgid "About"
-msgstr "Про..."
+msgstr "Про LibreELEC"
 
 msgctxt "#32198"
 msgid "SSID"
@@ -634,23 +640,23 @@ msgstr "SSH"
 
 msgctxt "#32202"
 msgid "Use Samba Password Authentication"
-msgstr ""
+msgstr "Використовувати авторизацію з паролем Samba"
 
 msgctxt "#32203"
 msgid "Disable SSH Password"
-msgstr ""
+msgstr "Вимкнути пароль SSH"
 
 msgctxt "#32204"
 msgid "Enable Samba"
-msgstr ""
+msgstr "Увімкнути Samba"
 
 msgctxt "#32205"
 msgid "Enable SSH"
-msgstr ""
+msgstr "Увімкнути SSH"
 
 msgctxt "#32206"
 msgid "Enable Avahi (Zeroconf)"
-msgstr ""
+msgstr "Увімкнути Avahi (Zeroconf)"
 
 msgctxt "#32207"
 msgid "Avahi"
@@ -658,15 +664,15 @@ msgstr "Avahi"
 
 msgctxt "#32208"
 msgid "Hidden Wlan"
-msgstr ""
+msgstr "Прихована бездротова мережа"
 
 msgctxt "#32209"
 msgid "SSH Password"
-msgstr ""
+msgstr "Пароль SSH"
 
 msgctxt "#32210"
 msgid "The default SSH password is widely known and considered insecure.[CR][CR]Setting a personal password is recommended."
-msgstr ""
+msgstr "Стандартний пароль SSH широко відомий і вважається ненадійним.[CR][CR]Радимо встановити власний пароль."
 
 msgctxt "#32212"
 msgid "Cancel"
@@ -674,119 +680,119 @@ msgstr "Скасувати"
 
 msgctxt "#32213"
 msgid "Keep Existing"
-msgstr ""
+msgstr "Залишити існуючий"
 
 msgctxt "#32214"
 msgid "Set Password"
-msgstr ""
+msgstr "Встановити пароль"
 
 msgctxt "#32215"
 msgid "Workgroup name"
-msgstr ""
+msgstr "Назва робочої групи"
 
 msgctxt "#32216"
 msgid "Auto-Share External Drives"
-msgstr ""
+msgstr "Автоматично відкривати доступ до зовнішніх дисків"
 
 msgctxt "#32217"
 msgid "Minimum supported protocol"
-msgstr ""
+msgstr "Мінімальний підтримуваний протокол"
 
 msgctxt "#32218"
 msgid "Maximum supported protocol"
-msgstr ""
+msgstr "Максимальний підтримуваний протокол"
 
 msgctxt "#32220"
 msgid "Bad password!"
-msgstr ""
+msgstr "Невірний пароль!"
 
 msgctxt "#32221"
 msgid "The entered password is too weak.[CR]SSH password is unchanged."
-msgstr ""
+msgstr "Введений пароль занадто простий.[CR]Пароль SSH не змінено."
 
 msgctxt "#32222"
 msgid "Password changed!"
-msgstr ""
+msgstr "Пароль змінено!"
 
 msgctxt "#32223"
 msgid "The SSH password has been successfully changed."
-msgstr ""
+msgstr "Пароль SSH було успішно змінено."
 
 msgctxt "#32224"
 msgid "Unknown error!"
-msgstr ""
+msgstr "Невідома помилка!"
 
 msgctxt "#32225"
 msgid "There was an error during the process.[CR]SSH password is unchanged."
-msgstr ""
+msgstr "В ході процесу виникла помилка.[CR]Пароль SSH не змінено."
 
 msgctxt "#32226"
 msgid "Enter new 4 digit PIN"
-msgstr ""
+msgstr "Введіть 4 цифри PIN-коду"
 
 msgctxt "#32227"
 msgid "Re-enter PIN"
-msgstr ""
+msgstr "Повторіть PIN-код"
 
 msgctxt "#32228"
 msgid "Error - PIN codes did not match!"
-msgstr ""
+msgstr "Помилка: PIN-коди не збігаються!"
 
 msgctxt "#32229"
 msgid "@DISTRONAME@ Settings PIN lock not set.[CR][CR]Please try again."
-msgstr ""
+msgstr "Блокування налаштувань @DISTRONAME@ PIN-кодом не увімкнено.[CR][CR]Повторіть спробу."
 
 msgctxt "#32230"
 msgid "@DISTRONAME@ Settings PIN lock set."
-msgstr ""
+msgstr "Блокування налаштувань @DISTRONAME@ PIN-кодом увімкнено."
 
 msgctxt "#32231"
 msgid "Your @DISTRONAME@ Settings PIN lock has been set to:"
-msgstr ""
+msgstr "Для блокування налаштувань @DISTRONAME@ PIN-кодом встановлено значення:"
 
 msgctxt "#32232"
 msgid "Error - PIN code not 4 digits!"
-msgstr ""
+msgstr "Помилка: PIN-код не містить 4 цифри!"
 
 msgctxt "#32233"
 msgid "@DISTRONAME@ Settings Locked[CR]Enter 4 digit PIN"
-msgstr ""
+msgstr "Налаштування @DISTRONAME@ заблоковані[CR]Введіть 4 цифри PIN-коду"
 
 msgctxt "#32234"
 msgid "Incorrect PIN!"
-msgstr ""
+msgstr "Невірний PIN-код!"
 
 msgctxt "#32235"
 msgid " attempts remaining."
-msgstr ""
+msgstr " спроб залишилось."
 
 msgctxt "#32236"
 msgid "You have entered an incorrect PIN too many times.[CR][CR]You will need to wait 5 minutes before trying again."
-msgstr ""
+msgstr "Ви ввели невірний PIN-код забагато разів.[CR][CR]Зачекайте 5 хвилин до наступної спроби."
 
 msgctxt "#32237"
 msgid "@DISTRONAME@ Settings Locked!"
-msgstr ""
+msgstr "Налаштування @DISTRONAME@ заблоковані!"
 
 msgctxt "#32238"
 msgid "Time remaining before PIN can be entered: %02d:%02d[CR][CR]Too many previous failed attempts."
-msgstr ""
+msgstr "Залишок часу до наступної спроби ввести PIN-код: %02d:%02d[CR][CR]Було забагато невдалих спроб."
 
 msgctxt "#32240"
 msgid "Wireless Regulatory Domain"
-msgstr ""
+msgstr "Радіочастотний регіон"
 
 msgctxt "#32300"
 msgid "Welcome to @DISTRONAME@"
-msgstr ""
+msgstr "Вітаємо в @DISTRONAME@"
 
 msgctxt "#32301"
 msgid "Welcome"
-msgstr ""
+msgstr "Вітаємо"
 
 msgctxt "#32302"
 msgid "This wizard will guide you through the process of setting up your new @DISTRONAME@ installation - setting your location, timezone and connecting you to the internet.[CR][CR]These settings can be changed later by navigating to Programs > @DISTRONAME@ Settings."
-msgstr ""
+msgstr "Цей майстер допоможе вам налаштувати новий екземпляр @DISTRONAME@: вказати розташування, часовий пояс та з'єднатись з Інтернетом.[CR][CR]Ці налаштування можна буде пізніше змінити в розділі \"Програми > Налаштування @DISTRONAME@\"."
 
 msgctxt "#32303"
 msgid "Next"
@@ -794,47 +800,47 @@ msgstr "Далі"
 
 msgctxt "#32304"
 msgid "To be identified easily on the network, your new @DISTRONAME@ machine needs a name.[CR][CR]Try to choose something meaningful - like the room it's in - so you'll know what it is when you see it on the network.[CR][CR]This name is used when configuring network services, like file sharing using samba."
-msgstr ""
+msgstr "Щоб комп'ютер @DISTRONAME@ легко було впізнати в мережі, йому потрібно дати назву.[CR][CR]Спробуйте вказати щось зрозуміле — наприклад назву кімнати, де він находиться.[CR][CR]Ця назва буде використовуватись під час налаштування мережевих служб, наприклад ресурсів Samba."
 
 msgctxt "#32305"
 msgid "Networking"
-msgstr ""
+msgstr "Налаштування мережі"
 
 msgctxt "#32306"
 msgid "In order to download backdrops, banners and thumbnails for your movies and TV shows and to stream online content from sites like YouTube, @DISTRONAME@ needs to be connected the Internet.[CR][CR]An Internet connection is also required for @DISTRONAME@ to automatically update itself."
-msgstr ""
+msgstr "Для завантаження фонових зображень, банерів та ескізів для ваших фільмів та серіалів і для потокового передавання вмісту з веб-сайтів, таких як YouTube, @DISTRONAME@ має бути підключений до Інтернету.[CR][CR]З'єднання з Інтернетом також потрібно для автоматичного оновлення @DISTRONAME@."
 
 msgctxt "#32307"
 msgid "Previous"
-msgstr ""
+msgstr "Назад"
 
 msgctxt "#32308"
 msgid "Hostname:"
-msgstr ""
+msgstr "Ім'я хоста:"
 
 msgctxt "#32309"
 msgid "The following Networks are currently available:"
-msgstr ""
+msgstr "Доступні наступні мережі:"
 
 msgctxt "#32310"
 msgid "Language:"
-msgstr ""
+msgstr "Мова:"
 
 msgctxt "#32311"
 msgid "Sharing and Remote Access"
-msgstr ""
+msgstr "Спільні ресурси та віддалений доступ"
 
 msgctxt "#32312"
 msgid "@DISTRONAME@ also supports SSH for remote access. This is for advanced users who wish to interact with @DISTRONAME@'s underlying operating system. The default user is [COLOR blue]root[/COLOR] and the default password is [COLOR blue]@ROOT_PASSWORD@[/COLOR]."
-msgstr ""
+msgstr "@DISTRONAME@ також підтримує віддалений доступ через SSH. Це призначено для досвідчених користувачів, котрі бажають працювати безпосередньо з операційною системою @DISTRONAME@. Користувач за замовчуванням — [COLOR blue]root[/COLOR], пароль за замовчуванням — [COLOR blue]@ROOT_PASSWORD@[/COLOR]."
 
 msgctxt "#32313"
 msgid "In order to share your files between your computers @DISTRONAME@ has incorporated a samba server. This samba server can be integrated into your local network by accessing it in a familiar way with Finder or Windows Explorer."
-msgstr ""
+msgstr "Для обміну файлами між комп'ютерами в @DISTRONAME@ є вбудований сервер Samba. Цей сервер можна використовувати у вашій локальній мережі звичним способом за допомогою Finder або провідника Windows."
 
 msgctxt "#32316"
 msgid "Configure Services:"
-msgstr ""
+msgstr "Налаштування служб:"
 
 msgctxt "#32317"
 msgid "Thank you"
@@ -842,7 +848,7 @@ msgstr "Дякуємо"
 
 msgctxt "#32318"
 msgid "Your @DISTRONAME@ installation is now complete and you are about to enter Kodi where you can set up your media libraries. For help with this, there is a guide available at wiki.kodi.tv[CR][CR]@DISTRONAME@ is developed by a dedicated team of developers who work purely in their spare time. Even as a volunteer project, we still have to pay for our internet bandwidth and development resources so if you find @DISTRONAME@ useful we will always appreciate a donation of any amount.[CR][CR]Finally, we hope you enjoy using @DISTRONAME@ as much as we've enjoyed building it. If you need any more help, you can find links to our support forum along with latest news at our website."
-msgstr ""
+msgstr "Встановлення @DISTRONAME@ завершено. Тепер ви можете увійти в Kodi та налаштувати медіатеки. Якщо вам потрібна допомога з цим, на веб-сайті wiki.kodi.tv є гарна документація.[CR][CR]@DISTRONAME@ розроблено відданою командою розробників, які працюють виключно у свій вільний час. Але навіть як волонтерський проект ми все одно маємо платити за доступ до Інтернету та ресурси для розробки. Тому, якщо @DISTRONAME@ виявився для вас корисним, ми завжди будемо вдячні за пожертву будь-якої суми.[CR][CR]Ну і ми сподіваємось, що вам сподобається користуватись @DISTRONAME@ так само, як нам подобається його створювати. Якщо вам потрібна додаткова допомога, ви можете знайти посилання на наш форум підтримки включно з останніми новинами на нашому веб-сайті."
 
 msgctxt "#32319"
 msgid "Cron"
@@ -850,35 +856,35 @@ msgstr "Cron"
 
 msgctxt "#32320"
 msgid "Enable Cron"
-msgstr ""
+msgstr "Увімкнути Cron"
 
 msgctxt "#32323"
 msgid "Reset to Defaults"
-msgstr ""
+msgstr "Скидання налаштувань"
 
 msgctxt "#32324"
 msgid "Reset System Settings to defaults"
-msgstr ""
+msgstr "Відновити стандартні налаштування системи"
 
 msgctxt "#32325"
 msgid "Reset @DISTRONAME@ to defaults"
-msgstr ""
+msgstr "Відновити стандартні налаштування @DISTRONAME@"
 
 msgctxt "#32326"
 msgid "Are you sure?"
-msgstr ""
+msgstr "Ви впевнені?"
 
 msgctxt "#32328"
 msgid "The system must reboot."
-msgstr ""
+msgstr "Систему необхідно перезавантажити."
 
 msgctxt "#32329"
 msgid "Rebooting in %d seconds"
-msgstr ""
+msgstr "Перезавантаження через %d секунд"
 
 msgctxt "#32330"
 msgid "Keyboard Type"
-msgstr ""
+msgstr "Тип клавіатури"
 
 msgctxt "#32331"
 msgid "Bluetooth"
@@ -886,7 +892,7 @@ msgstr "Bluetooth"
 
 msgctxt "#32333"
 msgid "Connected: "
-msgstr "Приєднано:"
+msgstr "З'єднано: "
 
 msgctxt "#32334"
 msgid "Yes"
@@ -898,31 +904,31 @@ msgstr "Ні"
 
 msgctxt "#32338"
 msgid "No Bluetooth adapter found."
-msgstr ""
+msgstr "Bluetooth-адаптер не знайдено."
 
 msgctxt "#32339"
 msgid "No Bluetooth device found. Please put your Bluetooth device into discovery mode[CR]and start the scan"
-msgstr ""
+msgstr "Bluetooth-пристрої не знайдено. Переведіть свій Bluetooth-пристрій в режим[CR]виявлення і запустіть сканування"
 
 msgctxt "#32343"
 msgid "Enter the following Key on your Device."
-msgstr ""
+msgstr "Введіть наступний код на своєму пристрої."
 
 msgctxt "#32344"
 msgid "Enable Bluetooth"
-msgstr ""
+msgstr "Увімкнути Bluetooth"
 
 msgctxt "#32346"
 msgid "Bluetooth is disabled"
-msgstr ""
+msgstr "Bluetooth вимкнено"
 
 msgctxt "#32358"
 msgid "Trust and Connect"
-msgstr ""
+msgstr "Довіряти і підключити"
 
 msgctxt "#32362"
 msgid "Check for updates now:"
-msgstr ""
+msgstr "Шукати оновлення зараз:"
 
 msgctxt "#32363"
 msgid "@DISTRONAME@"
@@ -930,75 +936,75 @@ msgstr "@DISTRONAME@"
 
 msgctxt "#32364"
 msgid "Update available"
-msgstr ""
+msgstr "Доступно оновлення"
 
 msgctxt "#32365"
 msgid "Show Update Notifications"
-msgstr ""
+msgstr "Показувати сповіщення про оновлення"
 
 msgctxt "#32366"
 msgid "Update Download Completed"
-msgstr ""
+msgstr "Завантаження оновлення завершено"
 
 msgctxt "#32367"
 msgid "Update Extract Complete"
-msgstr ""
+msgstr "Розпакування оновлення завершено"
 
 msgctxt "#32368"
 msgid "Advanced Network Settings"
-msgstr ""
+msgstr "Додаткові налаштування мережі"
 
 msgctxt "#32369"
 msgid "Wait for network before starting Kodi"
-msgstr ""
+msgstr "Очікувати на мережу перед запуском Kodi"
 
 msgctxt "#32370"
 msgid "Maximum Wait Time (Sec.)"
-msgstr ""
+msgstr "Максимальний час очікування (с)"
 
 msgctxt "#32371"
 msgid "Backup"
-msgstr ""
+msgstr "Резервне копіювання"
 
 msgctxt "#32372"
 msgid "Create System and Kodi Backup"
-msgstr ""
+msgstr "Створити резервну копію системи та Kodi"
 
 msgctxt "#32373"
 msgid "Restore Backup"
-msgstr ""
+msgstr "Відновити з резервної копії"
 
 msgctxt "#32374"
 msgid "Error: Invalid backup file. Filename must end in: .tar, .tar.gz, .tar.bz2, or .tar.xz"
-msgstr ""
+msgstr "Помилка: недійсний файл резервної копії. Назва файлу має закінчуватись на: .tar, .tar.gz, .tar.bz2 або .tar.xz"
 
 msgctxt "#32375"
 msgid "Backup Progress"
-msgstr ""
+msgstr "Процес створення резервної копії"
 
 msgctxt "#32376"
 msgid "Submit Log"
-msgstr ""
+msgstr "Надсилання журналу"
 
 msgctxt "#32377"
 msgid "Upload latest Kodi log and configs, and view the short URL"
-msgstr ""
+msgstr "Надіслати журнал та конфігурацію і отримати коротку URL-адресу"
 
 msgctxt "#32378"
 msgid "Upload latest Kodi crash log and configs, and view the short URL"
-msgstr ""
+msgstr "Надіслати журнал збоїв та конфігурацію і отримати коротку URL-адресу"
 
 msgctxt "#32379"
 msgid "There is not enough free storage space to continue!"
-msgstr ""
+msgstr "Недостатньо вільного місця на диску для продовження!"
 
 msgctxt "#32380"
 msgid "Restoring system settings requires a reboot. Are you sure you want to restore?"
-msgstr ""
+msgstr "Для відновлення системних налаштувань потрібне перезавантаження. Дійсно виконати відновлення?"
 
 msgctxt "#32381"
 msgid "Accept incoming Bluetooth Filetransfer ?"
-msgstr ""
+msgstr "Прийняти вхідний файл через Bluetooth?"
 
 msgctxt "#32382"
 msgid "Speed"
@@ -1006,116 +1012,116 @@ msgstr "Швидкість"
 
 msgctxt "#32383"
 msgid "Play Files ?"
-msgstr ""
+msgstr "Відтворити файли?"
 
 msgctxt "#32384"
 msgid "OBEX Enabled"
-msgstr ""
+msgstr "Увімкнути OBEX"
 
 msgctxt "#32385"
 msgid "OBEX Upload Folder"
-msgstr ""
+msgstr "Тека завантажень OBEX"
 
 msgctxt "#32386"
 msgid "Keyboard Layout Variant #1"
-msgstr ""
+msgstr "Розкладка клавіатури №1"
 
 msgctxt "#32387"
 msgid "Keyboard Layout Variant #2"
-msgstr ""
+msgstr "Розкладка клавіатури №2"
 
 msgctxt "#32388"
 msgid "Enable Standby"
-msgstr ""
+msgstr "Увімкнути режим очікування"
 
 msgctxt "#32389"
 msgid "Disable Standby"
-msgstr ""
+msgstr "Вимкнути режим очікування"
 
 msgctxt "#32390"
 msgid "Settings addon is not yet ready, please try again later."
-msgstr ""
+msgstr "Додаток налаштувань ще не готовий. Повторіть спробу пізніше."
 
 msgctxt "#32393"
 msgid "** SAFE MODE! ** SAFE MODE! ** SAFE MODE! **"
-msgstr ""
+msgstr "** БЕЗПЕЧНИЙ РЕЖИМ! ** БЕЗПЕЧНИЙ РЕЖИМ! ** БЕЗПЕЧНИЙ РЕЖИМ! **"
 
 msgctxt "#32394"
 msgid "@DISTRONAME@ has temporarily started in safe mode due to repeated Kodi crashes.[CR][CR]You may now investigate the cause of the crashes by enabling ssh or Samba.[CR][CR]Your original Kodi installation can be accessed via \"/storage/.kodi.FAILED\" and the Samba \"Kodi-Failed\" share.[CR][CR]Rebooting will return to your original Kodi installation.[CR][CR]Go to https://forum.libreelec.tv if you require further assistance. When posting to the forum include the link to your crash log which can be viewed by clicking the crash log option in Settings > LibreELEC > System > Submit Log."
-msgstr ""
+msgstr "@DISTRONAME@ тимчасово запущено в безпечному режимі через повторювані падіння Kodi.[CR][CR]Ви тепер можете дослідити причини збоїв, увімкнувши SSH або Samba.[CR][CR]До оригінальної інсталяції Kodi можна отримати доступ через теку \"/storage/.kodi.FAILED\" и мережевий ресурс Samba \"Kodi-Failed\".[CR][CR]Після перезавантаження буде відновлено оригінальну інсталяцію Kodi.[CR][CR]За додатковою допомогою звертайтесь на форум https://forum.libreelec.tv. Якщо будете писати повідомлення, додайте посилання на свій журнал збоїв, котрий можна переглянути в розділі Налаштування > LibreELEC > Система > Надіслати журнал."
 
 msgctxt "#32395"
 msgid "Firewall"
-msgstr ""
+msgstr "Брандмауер"
 
 msgctxt "#32396"
 msgid "Custom"
-msgstr ""
+msgstr "Власний"
 
 msgctxt "#32397"
 msgid "Off"
-msgstr ""
+msgstr "Вимкнено"
 
 msgctxt "#32398"
 msgid "Home"
-msgstr ""
+msgstr "Вдома"
 
 msgctxt "#32399"
 msgid "Public"
-msgstr ""
+msgstr "Публічний"
 
 msgctxt "#32400"
 msgid "Idle Timeout"
-msgstr ""
+msgstr "Час бездіяльності"
 
 msgctxt "#32401"
 msgid "Syncing Disks..."
-msgstr ""
+msgstr "Синхронізація дисків..."
 
 msgctxt "#32402"
 msgid "Backup is incomplete. An error occurred. See Kodi log for details."
-msgstr ""
+msgstr "Резервне копіювання не завершено. Виникла помилка. Подробиці див. в журналі Kodi."
 
 msgctxt "#32410"
 msgid "Logging"
-msgstr ""
+msgstr "Ведення журналу"
 
 msgctxt "#32411"
 msgid "Use Persistent Logs"
-msgstr ""
+msgstr "Використовувати постійні журнали"
 
 msgctxt "#32412"
 msgid "Use Persistent Journal and Log files instead of default volatile ones. Reboot to apply changes."
-msgstr ""
+msgstr "Використовувати постійні журнали замість тимчасових. Щоб застосувати зміни, перезавантажте систему."
 
 msgctxt "#32413"
 msgid "Journal Size"
-msgstr ""
+msgstr "Розмір журналу"
 
 msgctxt "#32414"
 msgid "Set max. size of persistent journal. Reboot to apply changes."
-msgstr ""
+msgstr "Вкажіть максимальний розмір для постійного журналу. Щоб застосувати зміни, перезавантажте систему."
 
 msgctxt "#32415"
 msgid "Disable journald Rate Limit"
-msgstr ""
+msgstr "Вимкнути обмеження швидкості заповнення журналу"
 
 msgctxt "#32416"
 msgid "Reboot to apply changes."
-msgstr ""
+msgstr "Перезавантажте систему, щоб застосувати зміни."
 
 msgctxt "#32417"
 msgid "Sending..."
-msgstr ""
+msgstr "Надсилання..."
 
 msgctxt "#32418"
 msgid "Log files sent to:"
-msgstr ""
+msgstr "Файли журналі надіслано на:"
 
 msgctxt "#32419"
 msgid "Error sending log files. Please try again."
-msgstr ""
+msgstr "Не вдалось надіслати файли журналів. Повторіть спробу."
 
 msgctxt "#32420"
 msgid "Timezone"
-msgstr ""
+msgstr "Часовий пояс"
