@@ -1129,7 +1129,3 @@ msgstr "Błąd podczas wysyłania plików dziennika. Spróbuj ponownie."
 msgctxt "#32420"
 msgid "Timezone"
 msgstr "Strefa czasowa"
-
-#~ msgctxt "#32189"
-#~ msgid "Identification"
-#~ msgstr "Identyfikacja"
