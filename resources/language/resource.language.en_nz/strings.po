@@ -1112,11 +1112,3 @@ msgstr ""
 msgctxt "#32420"
 msgid "Timezone"
 msgstr ""
-
-#~ msgctxt "Addon Summary"
-#~ msgid "@DISTRONAME@ Configuration"
-#~ msgstr "@DISTRONAME@ Configuration"
-
-#~ msgctxt "Addon Description"
-#~ msgid "Use this addon to manage your @DISTRONAME@ system's underlying operating system. From here you can manage the entire system so you don't have to worry about what runs under the hood.[CR][CR]From here you can change your network connectivity, your keyboard layout and language and enable/disable remote access including Samba and SSH."
-#~ msgstr "Use this addon to manage your @DISTRONAME@ system's underlying operating system. From here you can manage the entire system so you don't have to worry about what runs under the hood.[CR][CR]From here you can change your network connectivity, your keyboard layout and language and enable/disable remote access including Samba and SSH."
