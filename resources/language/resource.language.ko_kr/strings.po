@@ -1129,7 +1129,3 @@ msgstr "로그 파일 전송 중 오류가 발생했습니다. 다시 시도해 
 msgctxt "#32420"
 msgid "Timezone"
 msgstr "시간대"
-
-#~ msgctxt "#32189"
-#~ msgid "Identification"
-#~ msgstr "확인"

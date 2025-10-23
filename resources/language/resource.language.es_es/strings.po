@@ -1133,7 +1133,3 @@ msgstr "Error al enviar los archivos de registro. Inténtalo de nuevo."
 msgctxt "#32420"
 msgid "Timezone"
 msgstr "Zona horaria"
-
-#~ msgctxt "#32189"
-#~ msgid "Identification"
-#~ msgstr "Identificación"

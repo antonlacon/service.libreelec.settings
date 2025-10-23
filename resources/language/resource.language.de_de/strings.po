@@ -1130,7 +1130,3 @@ msgstr "Fehler beim Versenden der Protokolldatei. Bitte erneut versuchen."
 msgctxt "#32420"
 msgid "Timezone"
 msgstr "Zeitzone"
-
-#~ msgctxt "#32189"
-#~ msgid "Identification"
-#~ msgstr "Identifikation"

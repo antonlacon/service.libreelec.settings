@@ -1130,7 +1130,3 @@ msgstr "Ошибка при отправке файлов журнала. Поп
 msgctxt "#32420"
 msgid "Timezone"
 msgstr "Часовой пояс"
-
-#~ msgctxt "#32189"
-#~ msgid "Identification"
-#~ msgstr "Идентификация"
