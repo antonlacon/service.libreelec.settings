@@ -21,6 +21,14 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 "X-Generator: Weblate 4.11.2\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "@DISTRONAME@ konfigūravimas"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "Naudokite šį priedą operacines sistemos, kuris pagrįsta jūsų @DISTRONAME@ sistema, tvarkymui. Čia jūs galite valdyta visą sistemą, kad jums netektų rūpintis kas vyksta po gaubtu..[CR][CR]Čia galite pakeisti tinklo nustatymus, klaviatūros išdėstymą ir kalbą bei įjungti/išjungti nuotolinę prieigą, įskaitant Samba ir SSH."
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr "@DISTRONAME@ nustatymai"

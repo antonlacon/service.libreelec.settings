@@ -9,6 +9,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "@DISTRONAME@ Cấu hình"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "Sử dụng addon này để quản lý hệ thống điều hành @DISTRONAME@ cơ bản của bạn. Từ đây bạn có thể quản lý toàn bộ hệ thống, do đó bạn không cần phải lo lắng về những gì đang chạy . [CR][CR] Từ đây bạn có thể thay đổi kết nối mạng của bạn, bố trí bàn phím của bạn và ngôn ngữ và cho phép / vô hiệu hóa truy cập từ xa bao gồm Samba và SSH."
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr ""

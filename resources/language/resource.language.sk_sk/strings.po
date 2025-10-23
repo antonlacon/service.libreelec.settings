@@ -23,6 +23,14 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 "X-Generator: Weblate 4.15.2\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "Konfigurácia @DISTRONAME@"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "Tento doplnok slúži na správu operačného systému, na ktorom beží @DISTRONAME@. Odtiaľto je možné spravovať celý systém bez nutnosti znalostí o tom, čo beží pod kapotou.[CR][CR]Je tu možné meniť sieťové nastavenia, rozloženie a jazyk klávesnice alebo povoliť/zakázať vzdialený prístup prostredníctvom Samby a SSH."
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr "@DISTRONAME@ Nastavenia"

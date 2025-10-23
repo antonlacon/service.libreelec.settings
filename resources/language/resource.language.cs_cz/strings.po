@@ -28,6 +28,14 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 "X-Generator: Weblate 4.11.2\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "@DISTRONAME@ Nastavení"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "Použijte toto rozšíření pro správu vašeho @DISTRONAME@ systému. Odtud můžete spravovat celý systém, takže nemusíte mít strach o to, co běží pod kapotou. [CR] [CR] Odtud můžete změnit připojení k síti, rozložení klávesnice, jazyk a povolit nebo zakázat vzdálený přístup, včetně Samby a SSH."
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr "Nastavení @DISTRONAME@"

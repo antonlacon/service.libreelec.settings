@@ -18,6 +18,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.10\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "Настройки на @DISTRONAME@"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "Ползвайте добавката за да управлявате операционната система, в основата на @DISTRONAME@. Чрез добавката можете да настроите всичко и така не се налага да се притеснявате какво работи под Kodi.[CR][CR]От добавката можете да променяте настройките на мрежовите връзки, клавиатурната подредба и да включвате/изключвате отдалечения достъп посредством Samba или SSH."
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr "@DISTRONAME@ Настройки"

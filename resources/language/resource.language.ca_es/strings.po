@@ -14,6 +14,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "Configuració de @DISTRONAME@"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "Utilitza aquest complement per configurar el sistema operatiu subjacent del sistema @DISTRONAME@. Des d'aquí es pot gestionar tot el sistema, de manera que no s'ha de preocupar sobre el que s'executa sota el Kodi.[CR][CR]Des d'aquí es pot canviar la connectivitat de la xarxa, la distribució del teclat i idioma i activar / desactivar l'accés remot inclòs samba i SSH."
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr "Configuració de @DISTRONAME@"
