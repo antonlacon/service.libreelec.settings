@@ -18,6 +18,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.8\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr ""
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr ""
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr "@DISTRONAME@ Ezarpenak"

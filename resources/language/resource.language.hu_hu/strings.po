@@ -24,6 +24,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "@DISTRONAME@ konfiguráció"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "Ez a kiegészítő vezérli az @DISTRONAME@ rendszer alatti operációs rendszer beállításait. Innen kezelheti a teljes rendszert, tehát nem szükséges aggódnia mi van a motorháztető alatt. [CR][CR] Innen állíthatóak be a hálózati kapcsolatok, billentyűzet kiosztás és nyelvezet valamint a távoli hozzáférések engedélyezése/letiltása beleértve a Samba-t és SSH-t is."
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr "@DISTRONAME@ beállítások"

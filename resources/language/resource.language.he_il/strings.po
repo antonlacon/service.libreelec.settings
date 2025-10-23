@@ -16,6 +16,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "הגדרות @DISTRONAME@"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "בעזרת הרחבה זו ניתן לנהל את מערכת ההפעלה של @DISTRONAME@. מכאן ניתן לנהל כל אחד ממאפייני המערכת כך שאין צורך לדאוג מה קורה מתחת לממשק המשתמש.[CR][CR]ניתן לשנות הגדרות רשת, מערך מקלדת ושפה וגם להפעיל/לנטרל שירותי גישה מרחוק כולל Samba ו-SSH."
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr ""

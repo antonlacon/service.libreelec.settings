@@ -21,6 +21,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12.2\n"
 
+msgctxt "Addon Summary"
+msgid "@DISTRONAME@ Configuration"
+msgstr "Impostazioni @DISTRONAME@"
+
+msgctxt "Addon Description"
+msgid "Use this addon to manage @DISTRONAME@ services, updates, networking, bluetooth, backups, and other OS settings."
+msgstr "Usa questo addon per gestire le impostazioni del sistema operativo di @DISTRONAME@. Da qui puoi gestire l'intero sistema senza necessità di una conoscenza avanzata del software sottostante.[CR][CR]Puoi modificare le connessioni di rete, il layout e la lingua della tastiera così come abilitare/disabilitare l'accesso remoto tramite Samba e SSH"
+
 msgctxt "#600"
 msgid "@DISTRONAME@ Settings"
 msgstr "Impostazioni @DISTRONAME@"
