@@ -1128,7 +1128,3 @@ msgstr "Errore durante l'invio dei file di registro. Per favore riprova."
 msgctxt "#32420"
 msgid "Timezone"
 msgstr "Fuso orario"
-
-#~ msgctxt "#32189"
-#~ msgid "Identification"
-#~ msgstr "Identificazione"
