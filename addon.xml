@@ -92,5 +92,6 @@
     <description lang="uk_UA">Цей додаток дозволяє налаштувати служби @DISTRONAME@, оновлення, мережу, bluetooth, резервне копіювання та інші параметри ОС.</description>
     <description lang="vi_VN">Sử dụng addon này để quản lý hệ thống điều hành @DISTRONAME@ cơ bản của bạn. Từ đây bạn có thể quản lý toàn bộ hệ thống, do đó bạn không cần phải lo lắng về những gì đang chạy . [CR][CR] Từ đây bạn có thể thay đổi kết nối mạng của bạn, bố trí bàn phím của bạn và ngôn ngữ và cho phép / vô hiệu hóa truy cập từ xa bao gồm Samba và SSH.</description>
     <description lang="zh_CH">使用此插件管理你的 @DISTRONAME@ 系统的底层操作系统。它使你可以在无需深入了解的情况下管理整个系统。[CR][CR]在这里，你可以修改网络设置、键盘布局、语言以及启用/禁用 Samba 和 SSH 等远程访问功能。</description>
+    <description lang="zh_CN">使用此插件管理 @DISTRONAME@ 服务、更新、网络、蓝牙、备份及其他系统设置。</description>
   </extension>
 </addon>
