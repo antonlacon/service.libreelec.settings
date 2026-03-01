@@ -47,7 +47,7 @@ services = {
     'SAMBA_NMDB': '/usr/sbin/nmbd',
     'SAMBA_SMDB': '/usr/sbin/smbd',
     'D_SAMBA_WORKGROUP': 'WORKGROUP',
-    'D_SAMBA_SECURE': '0',
+    'D_SAMBA_SECURE': '1',
     'D_SAMBA_USERNAME': 'libreelec',
     'D_SAMBA_PASSWORD': 'libreelec',
     'D_SAMBA_MINPROTOCOL': 'SMB2',
